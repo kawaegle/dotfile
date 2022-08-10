@@ -1,0 +1,80 @@
+unsetopt BEEP
+export TERM="alacritty"
+export PAGER="less"
+export EDITOR="nvim"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/go/bin/:$HOME/.local/script"
+export GOPATH="$HOME/.local/go"
+
+autoload -Uz compinit
+autoload -U promptinit
+autoload -U colors
+colors
+promptinit
+compinit
+
+#Alias and Plugins
+source ~/.config/zsh/alias
+setopt auto_cd
+for p in $HOME/.config/zsh/plugins/*
+do
+    source $p
+done
+
+#Completion
+setopt correct_all
+setopt autocd autopushd
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:(cp|rm|mv):*' ignore-line yes
+zstyle ':completion:*' menu select 
+
+function _pip_completion {
+    local words cword
+    read -Ac words
+    read -cn cword
+    reply=( $( COMP_WORDS="$words[*]" \
+        COMP_CWORD=$(( cword-1 )) \
+        PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+}
+compctl -K _pip_completion pip
+
+#History option
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+
+autoload -U history-search-end
+
+HISTFILE=$HOME/.config/zsh/hist
+HISTSIZE=1000
+SAVEHIST=1000
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+#Keybind 
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+
+# Set LS_COLORS.
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+# If the zsh/complist module is loaded, this style can be used to set color
+# specifications.
+if [ -z "$LS_COLORS" ]; then
+  zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:'
+else
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+
+setopt interactive_comments
+
+
+# Begin: PlatformIO Core completion support
+eval "$(_PIO_COMPLETE=zsh_source pio)"
+# End: PlatformIO Core completion support
+

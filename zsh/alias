@@ -1,0 +1,51 @@
+alias \$=''
+alias 1='false'
+alias 0='true'
+alias g='git'
+alias gi='git init'
+alias gc='git clone'
+alias gcm='git commit -m'
+alias gcm_init='git commit -m ":tada: init commit"'
+alias gck='git checkout'
+alias gp='git push'
+alias gpull='git pull'
+alias gmerge='git merge'
+alias gshort='git shortlog'
+alias ga='git add'
+alias gf='git fetch'
+alias gdiff='git diff'
+alias gstat='git status'
+alias gstash='git stash'
+alias gpdb='git push --delete'
+alias gb='git branch'
+alias gba='git branch --all'
+alias nmap_open_ports="nmap --open"
+alias nmap_slow="sudo nmap -sS -v -T1"
+alias nmap_full="sudo nmap -sS -T4 -PE -PP -PS80,443 -PY -g 53 -A -p1-65535 -v"
+alias nmap_check_for_firewall="sudo nmap -sA -p1-65535 -v -T4"
+alias nmap_ping_through_firewall="nmap -PS -PA"
+alias nmap_fast="nmap -F -T5 --version-light --top-ports 300"
+alias nmap_detect_versions="sudo nmap -sV -p1-65535 -O --osscan-guess -T4 -Pn"
+alias nmap_check_for_vulns="nmap --script=vuln"
+alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
+alias nmap_ping_scan="nmap -n -sP"
+alias ping='ping -c 10'
+alias ask='cheat-sh $1'
+alias cpv='rsync -pogbr -hhh -e /dev/null --progress "$@"'
+alias ls='ls --color=auto --hyperlink=auto'
+alias la='ls -l -a --color=auto --hyperlink=auto'
+alias ll='ls -l --color=auto --hyperlink=auto'
+alias mkdir='mkdir -p'
+alias remove='shred -fuvzn5'
+alias clear='reset'
+alias ht='htop'
+alias jb='jobs'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage"'
+alias myip='curl --silent ipecho.net/plain'
+alias pacclean='sudo pacman -Scc'
+alias pacrefresh='sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist'
+alias q='exit'
+alias size='ncdu'
+alias v='nvim'
+alias qrreader='zbarimg -q '
+alias epitest='docker run -it -v $PWD:/tmp/workspace -w /tmp/workspace epitest /bin/bash '
