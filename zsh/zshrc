@@ -13,9 +13,9 @@ promptinit
 compinit
 
 #Alias and Plugins
-source ~/.config/zsh/alias
+source ~/.local/share/dotfile/zsh/alias
 setopt auto_cd
-for p in $HOME/.config/zsh/plugins/*
+for p in $HOME/.local/share/dotfile/zsh/plugins/*
 do
     source $p
 done
@@ -26,7 +26,7 @@ setopt autocd autopushd
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:(cp|rm|mv):*' ignore-line yes
-zstyle ':completion:*' menu select 
+zstyle ':completion:*' menu select
 
 function _pip_completion {
     local words cword
@@ -44,13 +44,13 @@ setopt hist_find_no_dups
 
 autoload -U history-search-end
 
-HISTFILE=$HOME/.config/zsh/hist
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=$HOME/.local/share/dotfile/zsh/hist
+HISTSIZE=10000
+SAVEHIST=10000
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-#Keybind 
+#Keybind
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 bindkey '^[[H' beginning-of-line
@@ -73,8 +73,6 @@ fi
 
 setopt interactive_comments
 
-
 # Begin: PlatformIO Core completion support
 eval "$(_PIO_COMPLETE=zsh_source pio)"
 # End: PlatformIO Core completion support
-
