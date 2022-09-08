@@ -3,7 +3,7 @@
     {
       "name": "zsh/zshrc",
       "location": "~/.zshrc",
-      "type": "same"
+      "type": "different"
     },
     {
       "name": "nvim",
