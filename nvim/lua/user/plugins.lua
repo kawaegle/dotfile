@@ -46,7 +46,8 @@ return packer.startup(function(use)
     use {'romainl/vim-qf'} --use quickfick list
     use {'windwp/nvim-autopairs'} --allow fast autopairs based on treesitter
     use {'numToStr/Comment.nvim',
-    requires = 'JoosepAlviste/nvim-ts-context-commentstring'} --let's comment depends on the filetype
+        requires = 'JoosepAlviste/nvim-ts-context-commentstring'} --let's comment depends on the filetype
+
     use {'hrsh7th/nvim-cmp'} --completion api
     use {'hrsh7th/cmp-buffer'} --completion api from file
     use {'hrsh7th/cmp-path'} --completion api from filepath
@@ -56,8 +57,11 @@ return packer.startup(function(use)
     use {'L3MON4D3/LuaSnip'} --snipet sugestion
     use {'rafamadriz/friendly-snippets'} --collection of snippet from vscode
     use {'onsails/lspkind-nvim'} --lsp icon
+
     use {'neovim/nvim-lspconfig'} --configuration for lsp server
-    use {'williamboman/nvim-lsp-installer'} --installer of LSP server
+    use {'williamboman/mason.nvim'} --installer of LSP server
+    use {'williamboman/mason-lspconfig.nvim'} --installer of LSP server
+
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} --treesitter support for all nvim
     use {'p00f/nvim-ts-rainbow'} --rainbow bracket with treesitter
     use {'lewis6991/gitsigns.nvim'} --show git symbols on modified file
@@ -65,6 +69,27 @@ return packer.startup(function(use)
     use {'Yohannfra/Vim-Epitech'} -- epitech header
     use {'ludovicchabant/vim-gutentags'} --support ctags file
     use {'preservim/tagbar'} --support ctags file
+    use {'VonHeikemen/lsp-zero.nvim',
+        requires = {
+        -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+
+    -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
+
+    -- Snippets
+            {'L3MON4D3/LuaSnip'},
+            {'rafamadriz/friendly-snippets'},
+  }
+}
+
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end

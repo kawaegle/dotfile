@@ -66,17 +66,17 @@ cmp.setup {
     },
 
     formatting = {
-    fields = {"abbr", "kind", "menu"},
-    format = function(entry, item)
-        item.kind = lspkind.presets.default[item.kind]
-        item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-        })[entry.source.name]
-        return item
-        end
+        fields = {"abbr", "kind", "menu"},
+        format = function(entry, item)
+            item.kind = lspkind.presets.default[item.kind]
+            item.menu = ({
+                nvim_lsp = "[LSP]",
+                luasnip = "[LuaSnip]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+            })[entry.source.name]
+            return item
+            end
     },
     sources = {
         {name = 'nvim_lsp'},

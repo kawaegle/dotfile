@@ -1,8 +1,23 @@
-local status_ok, _ = pcall(require, "lspconfig")
+local lsp = require("lsp-zero")
 
-if not status_ok then
-    return
-end
+require("mason").setup({
+    ui = {
+        border = "rounded",
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+require("mason-lspconfig").setup({
+    ensure_installed = {"pyright", "gopls", "clangd", "asm_lsp", "diagnisticls", "cmake", "cpptools", "bashsl"},
+    automatic_installation = true,
+})
 
-require('user.lsp.lsp-installer')
-require('user.lsp.handlers').setup()
+lsp.preset('recommended')
+lsp.setup()
+
+vim.diagnostic.config({
+  virtual_text = true
+})
