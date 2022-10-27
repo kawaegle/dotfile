@@ -37,6 +37,8 @@ packer.init {
     },
 }
 
+vim.cmd [[packadd termdebug]]
+
 -- add your plugins here
 return packer.startup(function(use)
     use {'wbthomason/packer.nvim'} --packer piugin manager
@@ -48,20 +50,6 @@ return packer.startup(function(use)
     use {'numToStr/Comment.nvim',
         requires = 'JoosepAlviste/nvim-ts-context-commentstring'} --let's comment depends on the filetype
 
-    use {'hrsh7th/nvim-cmp'} --completion api
-    use {'hrsh7th/cmp-buffer'} --completion api from file
-    use {'hrsh7th/cmp-path'} --completion api from filepath
-    use {'hrsh7th/cmp-cmdline'} --completion api from command line
-    use {'hrsh7th/cmp-nvim-lsp'} --completion api from lsp server
-    use {'saadparwaiz1/cmp_luasnip'} --completion api from LuaSnip
-    use {'L3MON4D3/LuaSnip'} --snipet sugestion
-    use {'rafamadriz/friendly-snippets'} --collection of snippet from vscode
-    use {'onsails/lspkind-nvim'} --lsp icon
-
-    use {'neovim/nvim-lspconfig'} --configuration for lsp server
-    use {'williamboman/mason.nvim'} --installer of LSP server
-    use {'williamboman/mason-lspconfig.nvim'} --installer of LSP server
-
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} --treesitter support for all nvim
     use {'p00f/nvim-ts-rainbow'} --rainbow bracket with treesitter
     use {'lewis6991/gitsigns.nvim'} --show git symbols on modified file
@@ -69,26 +57,29 @@ return packer.startup(function(use)
     use {'Yohannfra/Vim-Epitech'} -- epitech header
     use {'ludovicchabant/vim-gutentags'} --support ctags file
     use {'preservim/tagbar'} --support ctags file
+
     use {'VonHeikemen/lsp-zero.nvim',
         requires = {
         -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-
-    -- Autocompletion
+            {'neovim/nvim-lspconfig'}, --configuration for lsp server
+            {'williamboman/mason.nvim'}, --installer of LSP server
+            {'williamboman/mason-lspconfig.nvim'}, --config LSP server
+            {'mfussenegger/nvim-dap'}, --Use DAP
+            {'jayp0521/mason-nvim-dap.nvim'}, --config install DAP
+        -- Snippets
+            {'onsails/lspkind-nvim'}, --lsp icon
+            {'L3MON4D3/LuaSnip'}, --snippet manager
+            {'rafamadriz/friendly-snippets'}, --snippet collection
+        -- Autocompletion
+            {'hrsh7th/cmp-cmdline'}, --completion api from command line
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
             {'hrsh7th/cmp-nvim-lsp'},
             {'hrsh7th/cmp-nvim-lua'},
-
-    -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
-  }
-}
+            {'saadparwaiz1/cmp_luasnip'}, --luasnip completion source for nvim-cmp
+        }
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
