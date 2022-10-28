@@ -1,7 +1,14 @@
-local lsp = require("lsp-zero")
-local dap = require("dap")
+local ok1, lsp = pcall(require, "lsp-zero")
+local ok2, dap = pcall(require, "dap")
+local ok3, mason = pcall(require, "mason")
+local ok4, mason_config = pcall(require, "mason-lspconfig")
+local ok5, mason_dap = pcall(require, "mason-nvim-dap")
 
-require("mason").setup({
+if not ok1 or not ok2 or not ok3 or not ok4 or not ok5 then
+    return
+end
+
+mason.setup({
     ui = {
         border = "rounded",
         icons = {
@@ -12,7 +19,7 @@ require("mason").setup({
     }
 })
 
-require("mason-lspconfig").setup({
+mason_config.setup({
     ensure_installed = {"pyright", "gopls", "clangd", "diagnosticls", "cmake", "bashls"},
     automatic_installation = true,
 })
@@ -34,7 +41,7 @@ lsp.set_preferences({
   }
 })
 
-require("mason-nvim-dap").setup({
+mason_dap.setup({
     ensure_installed = {"cpptools"},
     automatic_setup = true,
 })
