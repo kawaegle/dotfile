@@ -18,3 +18,5 @@ require('user.comment')
 require('user.autopairs')
 -- gitsigns
 require('user.gitsigns')
+-- lua line
+require('user.lualine')
