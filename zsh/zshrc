@@ -4,6 +4,7 @@ export PAGER="less"
 export EDITOR="nvim"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/go/bin/:$HOME/.local/script"
 export GOPATH="$HOME/.local/go"
+export QT_QPA_PLATFORM=wayland
 
 autoload -Uz compinit
 autoload -U promptinit
