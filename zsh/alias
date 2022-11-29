@@ -5,7 +5,9 @@ alias ask='cheat-sh $1'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage"'
 alias clear='reset'
 alias cpv='rsync -pogbr -hhh -e /dev/null --progress "$@"'
-alias epitest='docker run -it --rm -v $PWD:/tmp/workspace -w /tmp/workspace alecromski/epitest /bin/bash'
+alias epitest='docker run -it --rm -v $PWD:/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'
+alias fuckthis='shutdown now'
+
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
@@ -26,13 +28,14 @@ alias gshort='git shortlog'
 alias gstash='git stash'
 alias gstat='git status'
 alias gsub='git submodule'
+
 alias ht='htop'
 alias icat='kitty +kitten icat'
 alias la='ls -l -a --color=auto --hyperlink=auto'
 alias ll='ls -l --color=auto --hyperlink=auto'
 alias ls='ls --color=auto --hyperlink=auto'
-alias mkdir='mkdir -p'
 alias myip='curl --silent ipecho.net/plain'
+
 alias nmap_check_for_firewall="sudo nmap -sA -p1-65535 -v -T4"
 alias nmap_check_for_vulns="nmap --script=vuln"
 alias nmap_detect_versions="sudo nmap -sV -p1-65535 -O --osscan-guess -T4 -Pn"
@@ -43,11 +46,14 @@ alias nmap_ping_scan="nmap -n -sP"
 alias nmap_ping_through_firewall="nmap -PS -PA"
 alias nmap_slow="sudo nmap -sS -v -T1"
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
+
+alias kubectl='minikube kubectl --'
+
 alias pacclean='sudo pacman -Scc'
 alias pacrefresh='sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist'
 alias ping='ping -c 10'
+alias please='sudo'
 alias q='exit'
 alias qrreader='zbarimg -q '
-alias v='nvim'
 alias ssh="kitty +kitten ssh"
-alias ...="../../"
+alias v='nvim'
