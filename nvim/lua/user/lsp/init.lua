@@ -20,7 +20,7 @@ mason.setup({
 })
 
 mason_config.setup({
-    ensure_installed = {"pyright", "gopls", "clangd", "diagnosticls", "cmake", "bashls"},
+    ensure_installed = {"pyright", "clangd", "diagnosticls", "cmake", "bashls"},
     automatic_installation = true,
 })
 
