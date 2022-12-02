@@ -5,11 +5,11 @@ local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system {
         "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
     }
     print "Installing packer close and reopen Neovim ..."
     vim.cmd [[packadd packer.nvim]]
@@ -54,7 +54,6 @@ return packer.startup(function(use)
     use {'p00f/nvim-ts-rainbow'} --rainbow bracket with treesitter
     use {'lewis6991/gitsigns.nvim'} --show git symbols on modified file
     use {'normen/vim-pio'} --support platformio on nvim
-    use {'Yohannfra/Vim-Epitech'} -- epitech header
     use {'ludovicchabant/vim-gutentags'} --support ctags file
     use {'preservim/tagbar'} --support ctags file
 
@@ -84,6 +83,7 @@ return packer.startup(function(use)
             {'saadparwaiz1/cmp_luasnip'}, --luasnip completion source for nvim-cmp
         }
     }
+    use {'preservim/nerdtree'}
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
