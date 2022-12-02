@@ -6,17 +6,20 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- epitech header
-keymap("n", "<leader>hp", ":Header<CR>", opts)
+-- lsp floats
+keymap("n", "<C- >", ":lua vim.diagnostic.open_float()<CR>", opts)
+-- toggle NERD tree
+keymap("n", "<C-n>", ":NERDTreeToggle<CR><CR>", opts)
+
+-- split and vsplit
+keymap("n", "<leader>v", ":vsplit<CR>", opts)
+keymap("n", "<leader>s", ":split<CR>", opts)
 
 -- move auround window
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
---open folder panel
-keymap("n", "<leader>e", ":Lex 15<CR>", opts)
 
 -- resize window
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -27,7 +30,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- switch buffer or tab
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<Tab>", ":tabnext<CR>", opts)
+keymap("n", "<Tab>", "a<Tab>", opts)
 keymap("n", "<S-Tab>", ":tabprevious<CR>", opts)
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 
@@ -41,10 +44,6 @@ keymap("n", "<leader><leader>", ":noh<CR>", opts)
 keymap("n", "<leader>ww", ":w!<CR>", opts)
 keymap("n", "<leader>qq", ":q!<CR>", opts)
 keymap("n", "<leader>wq", ":wq<CR>", opts)
-
--- split
-keymap("n", "<leader>vs", ":vsplit<CR>", opts);
-keymap("n", "<leader>hs", ":split<CR>", opts);
 
 -- indent selected text
 keymap("v", "<", "<gv", opts)

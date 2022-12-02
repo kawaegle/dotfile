@@ -20,7 +20,7 @@ mason.setup({
 })
 
 mason_config.setup({
-    ensure_installed = {"pyright", "gopls", "clangd", "diagnosticls", "cmake", "bashls"},
+    ensure_installed = {"pyright", "clangd", "diagnosticls", "cmake", "bashls"},
     automatic_installation = true,
 })
 
@@ -49,5 +49,5 @@ mason_dap.setup({
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities
 
 vim.diagnostic.config({
-  virtual_text = true
+  virtual_text = false
 })
