@@ -21,3 +21,8 @@ require("tokyonight").setup({
 })
 
 vim.cmd[[colorscheme tokyonight]]
+
+require("nvim-web-devicons").setup {
+ color_icons = true;
+ default = true;
+}

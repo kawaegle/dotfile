@@ -33,6 +33,7 @@ local options = {
     sidescrolloff = 8,
     listchars = "eol:↓,trail:●,space:·",
     list = true,
+    termguicolors = true,
 }
 
 vim.opt.shortmess:append "c"
@@ -40,6 +41,8 @@ vim.opt.shortmess:append "c"
 for i, j in pairs(options) do
     vim.opt[i] = j
 end
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

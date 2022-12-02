@@ -9,7 +9,7 @@ vim.g.maplocalleader = " "
 -- lsp floats
 keymap("n", "<C- >", ":lua vim.diagnostic.open_float()<CR>", opts)
 -- toggle NERD tree
-keymap("n", "<C-n>", ":NERDTreeToggle<CR><CR>", opts)
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- split and vsplit
 keymap("n", "<leader>v", ":vsplit<CR>", opts)

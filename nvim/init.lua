@@ -20,3 +20,5 @@ require('user.autopairs')
 require('user.gitsigns')
 -- lua line
 require('user.lualine')
+-- use nerd tree instead of netrw
+require("nvim-tree").setup()

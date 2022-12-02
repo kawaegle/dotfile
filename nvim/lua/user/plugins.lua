@@ -59,8 +59,7 @@ return packer.startup(function(use)
 
 
     use {'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+        requires = 'nvim-tree/nvim-web-devicons'}
     use {'VonHeikemen/lsp-zero.nvim',
         requires = {
         -- LSP Support
@@ -83,8 +82,7 @@ return packer.startup(function(use)
             {'saadparwaiz1/cmp_luasnip'}, --luasnip completion source for nvim-cmp
         }
     }
-    use {'preservim/nerdtree'}
-
+    use { 'nvim-tree/nvim-tree.lua'}
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
