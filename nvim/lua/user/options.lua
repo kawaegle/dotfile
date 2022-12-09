@@ -34,8 +34,8 @@ local options = {
     listchars = "eol:↓,trail:●,space:·",
     list = true,
     termguicolors = true,
+    encoding = 'utf-8',
 }
-
 vim.opt.shortmess:append "c"
 
 for i, j in pairs(options) do
