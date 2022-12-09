@@ -26,7 +26,7 @@ vim.cmd [[
 --use protected call
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+    return
 end
 
 packer.init {
