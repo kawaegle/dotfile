@@ -46,6 +46,14 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.api.nvim_create_autocmd({"InsertLeave"}, {command = [[%s/\s\+$//e]]})
+vim.api.nvim_create_autocmd({"InsertLeave"}, {
+    pattern = "*",
+    callback = function ()
+        if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
+            return
+        end
+        vim.cmd [[ :%s/\s\+$//e ]]
+    end,
+})
 
 -- colorcolumn = "80" for all but not txt and md
