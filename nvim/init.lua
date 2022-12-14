@@ -10,6 +10,7 @@ require('user.colorscheme')
 require('user.cmp')
 -- lsp
 require('user.lsp')
+require('user.dap')
 -- treesitter
 require('user.treesitter')
 -- commentstring
