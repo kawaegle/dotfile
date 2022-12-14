@@ -57,7 +57,6 @@ return packer.startup(function(use)
     use {'ludovicchabant/vim-gutentags'} --support ctags file
     use {'preservim/tagbar'} --support ctags file
 
-
     use {'nvim-lualine/lualine.nvim',
         requires = 'nvim-tree/nvim-web-devicons'}
     use {'VonHeikemen/lsp-zero.nvim',
@@ -66,8 +65,6 @@ return packer.startup(function(use)
             {'neovim/nvim-lspconfig'}, --configuration for lsp server
             {'williamboman/mason.nvim'}, --installer of LSP server
             {'williamboman/mason-lspconfig.nvim'}, --config LSP server
-            {'mfussenegger/nvim-dap'}, --Use DAP
-            {'jayp0521/mason-nvim-dap.nvim'}, --config install DAP
         -- Snippets
             {'onsails/lspkind-nvim'}, --lsp icon
             {'L3MON4D3/LuaSnip'}, --snippet manager
@@ -82,6 +79,10 @@ return packer.startup(function(use)
             {'saadparwaiz1/cmp_luasnip'}, --luasnip completion source for nvim-cmp
         }
     }
+
+    use { 'rcarriga/nvim-dap-ui', requires = 'mfussenegger/nvim-dap'} --Use DAP
+    use {'jayp0521/mason-nvim-dap.nvim'} --config install DAP
+
     use { 'nvim-tree/nvim-tree.lua'}
     if PACKER_BOOTSTRAP then
         require("packer").sync()
