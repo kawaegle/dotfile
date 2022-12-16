@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[[ jb=$(jobs -l | wc -l) -gt 0 ]] && symbols="%{%F{cyan}%}⚙$jb"
+
+export PROMPT='%B%n@%~:%F{magenta}$symbols%F{reset}$(gitprompt)%(?.%F{green}❯❯❯.%F{red}❯❯❯)%F{reset}%b'
