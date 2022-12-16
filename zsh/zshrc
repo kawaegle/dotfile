@@ -5,6 +5,8 @@ export EDITOR="nvim"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/go/bin/:$HOME/.local/script:$HOME/.platformio/penv/bin/"
 export GOPATH="$HOME/.local/go"
 export QT_QPA_PLATFORM=wayland
+test -z $DOT && DOT="$HOME/.local/share/dotfile"
+test -z $ZSH_DOT && ZSH_DOT="$DOT/zsh"
 
 autoload -Uz compinit
 autoload -U promptinit
@@ -14,9 +16,9 @@ promptinit
 compinit
 
 #Alias and Plugins
-source ~/.local/share/dotfile/zsh/alias
+source $ZSH_DOT/alias
 setopt auto_cd
-for p in $HOME/.local/share/dotfile/zsh/plugins/*
+for p in "$ZSH_DOT/plugins/"*
 do
     source $p
 done
@@ -45,7 +47,7 @@ setopt hist_find_no_dups
 
 autoload -U history-search-end
 
-HISTFILE=$HOME/.local/share/dotfile/zsh/hist
+HISTFILE="$ZSH_DOT/hist"
 HISTSIZE=10000
 SAVEHIST=10000
 zle -N history-beginning-search-backward-end history-search-end
