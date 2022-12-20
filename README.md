@@ -12,7 +12,7 @@ I'm currently working on documentation. As soon as these dots were originally
 made for me, I didn't take the time to comment them really well, neither
 document them.
 But you can already find my NVim's configuration documentation
-[here](https://github.com/kawaegle/Dotfiles/blob/main/nvim/README.md).
+[here](nvim/README.md), and my zsh config [here](zsh/README.md).
 
 ## Installation
 

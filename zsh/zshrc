@@ -5,6 +5,7 @@ export EDITOR="nvim"
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/go/bin/:$HOME/.local/script:$HOME/.platformio/penv/bin/"
 export GOPATH="$HOME/.local/go"
 export QT_QPA_PLATFORM=wayland
+export THEME="kawaegle_prompt"
 test -z $DOT && DOT="$HOME/.local/share/dotfile"
 test -z $ZSH_DOT && ZSH_DOT="$DOT/zsh"
 
@@ -21,6 +22,15 @@ setopt auto_cd
 for p in "$ZSH_DOT/plugins/"*
 do
     source $p
+done
+
+for theme in "$ZSH_DOT/themes/"*
+do
+    check_theme=${${theme%.zsh}##*/}
+    if [[ $THEME == "$check_theme" ]]; then
+        source $theme
+    #     break
+    fi
 done
 
 #Completion
