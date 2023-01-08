@@ -55,5 +55,3 @@ vim.api.nvim_create_autocmd({"InsertLeave"}, {
         vim.cmd [[ :%s/\s\+$//e ]]
     end,
 })
-
--- colorcolumn = "80" for all but not txt and md

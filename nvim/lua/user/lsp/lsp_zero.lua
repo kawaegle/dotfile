@@ -20,8 +20,6 @@ lsp.set_preferences({
 })
 
 
---[[ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities ]]
-
 vim.diagnostic.config({
   virtual_text = false
 })
