@@ -55,5 +55,9 @@ keymap("n", "<A-j>", ":m '>+1<CR>gv-gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 keymap("n", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
+-- cats (because mental health is important)
+keymap("n", "<leader>C", ":PetsNew cat1<CR>", opts)
+keymap("n", "<leader>c", ":PetsHideToggle<CR>", opts)
+
 -- sort selected line
 keymap("v", "<leader>S", ":sort<CR>", opts)

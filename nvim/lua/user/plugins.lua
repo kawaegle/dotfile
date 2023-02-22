@@ -54,8 +54,8 @@ return packer.startup(function(use)
     use {'p00f/nvim-ts-rainbow'} --rainbow bracket with treesitter
     use {'lewis6991/gitsigns.nvim'} --show git symbols on modified file
     use {'normen/vim-pio'} --support platformio on nvim
-    use {'ludovicchabant/vim-gutentags'} --support ctags file
-    use {'preservim/tagbar'} --support ctags file
+    --[[ use {'ludovicchabant/vim-gutentags'} --support ctags file ]]
+    --[[ use {'preservim/tagbar'} --support ctags file ]]
 
 
     use {'nvim-lualine/lualine.nvim',
@@ -84,8 +84,16 @@ return packer.startup(function(use)
         }
     }
     use {'preservim/nerdtree'}
+    use {"giusgad/pets.nvim",
+        requires = {
+            {"edluffy/hologram.nvim"},
+            {"MunifTanjim/nui.nvim"},
+        }
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
+
+    require("pets").setup()
 end)
