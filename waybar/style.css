@@ -1,0 +1,125 @@
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 0px;
+}
+
+window#waybar {
+    background: rgba(14, 10, 15, 0.1);
+}
+
+#workspaces button {
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #cdd6f4;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.active {
+    background: #a6adc8;
+    color: #313244;
+    margin-left: 2px;
+    padding-left: 3px;
+    padding-right: 5px;
+    margin-right: 2px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.urgent {
+    background: #f53c3c;
+}
+
+#workspaces button:hover {
+    background: #f5c2e7;
+    color: #313244;
+    padding-left: 2px;
+    padding-right: 2px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#clock,
+#workspaces,
+#window,
+#network,
+#bluetooth,
+#pulseaudio,
+#battery {
+    color: #cdd6f4;
+    background: #222436; /* to change */
+    opacity: 1;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 3px 5px 3px 0px;
+}
+
+#clock {
+    margin-left: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 6px;
+}
+
+#window {
+    padding-right: 12px;
+}
+
+#network {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#bluetooth {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#pulseaudio {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#pulseaudio.muted {
+    color: #3E4B6A;
+
+}
+
+#battery {
+    padding-left: 4px;
+    padding-right: 12px;
+    margin-right: 25px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #5F0505;
+    color: white;
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

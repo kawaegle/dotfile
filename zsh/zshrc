@@ -1,33 +1,47 @@
-unsetopt BEEP
-export TERM="alacritty"
-export PAGER="less"
-export EDITOR="nvim"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.local/go/bin/:$HOME/.local/script"
-export GOPATH="$HOME/.local/go"
+#Manage Env
+test -z $DOT && DOT="$HOME/.local/share/dotfile"
+test -z $ZSH_DOT && ZSH_DOT="$DOT/zsh"
+set -a; source $ZSH_DOT/env; set +a
 
 autoload -Uz compinit
 autoload -U promptinit
 autoload -U colors
 colors
 promptinit
-compinit
+compinit -D
 
-#Alias and Plugins
-source ~/.config/zsh/alias
+#Load Alias and Plugins
+source $ZSH_DOT/alias
 setopt auto_cd
-for p in $HOME/.config/zsh/plugins/*
+for p in "$ZSH_DOT/plugins/"*
 do
     source $p
+done
+
+#Load Themes from Themes folder
+for theme in "$ZSH_DOT/themes/"*
+do
+    check_theme=${${theme%.zsh}##*/}
+    if [[ $THEME == "$check_theme" ]]; then
+        source $theme
+        break
+    fi
 done
 
 #Completion
 setopt correct_all
 setopt autocd autopushd
+setopt interactive_comments # maybe remove it so # can be a correct sudo spawn
+unsetopt BEEP
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' file-patterns '^package-lock.json:source-files' '*:all-files' # ignore `package-lock.json` from completion
+zstyle ':completion:*' file-patterns '^.obj:source-files' '*:all-files' # ignore `package-lock.json` from completion
 zstyle ':completion:*:(cp|rm|mv):*' ignore-line yes
-zstyle ':completion:*' menu select 
+zstyle ':completion:*:functions' ignored-patterns '_*' # ignore completion for non-existant commands
+zstyle ':completion:*' menu select
 
+#Pip completion
 function _pip_completion {
     local words cword
     read -Ac words
@@ -41,16 +55,17 @@ compctl -K _pip_completion pip
 #History option
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
-
+setopt share_history
+setopt hist_ignore_space
+setopt hist_reduce_blanks
 autoload -U history-search-end
-
-HISTFILE=$HOME/.config/zsh/hist
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE="$ZSH_DOT/hist"
+HISTSIZE=10000
+SAVEHIST=10000
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-#Keybind 
+#Keybind
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 bindkey '^[[H' beginning-of-line
@@ -63,18 +78,12 @@ bindkey '^[[1;5D' backward-word
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-# If the zsh/complist module is loaded, this style can be used to set color
-# specifications.
 if [ -z "$LS_COLORS" ]; then
   zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:'
 else
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
 
-setopt interactive_comments
-
-
-# Begin: PlatformIO Core completion support
 eval "$(_PIO_COMPLETE=zsh_source pio)"
-# End: PlatformIO Core completion support
-
+fpath=(/opt/vagrant/embedded/gems/2.3.4/gems/vagrant-2.3.4/contrib/zsh $fpath)
+compinit

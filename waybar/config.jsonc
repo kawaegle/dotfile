@@ -1,0 +1,93 @@
+{
+  "position": "top",
+  "layer": "top",
+  "height": 30,
+  "modules-left": ["clock", "wlr/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["pulseaudio", "battery", "network", "bluetooth"],
+
+  "wlr/workspaces": {
+    "format": "{name}:{icon}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
+  },
+
+  "network": {
+    "tooltip-format": "{ipaddr} via {ifname} ",
+    "format-wifi": "   {essid}",
+    "format-ethernet": "  {ipaddr}",
+    "on-click": "kitty iwctl"
+  },
+
+  "hyprland/window": {
+    "format": "  {}",
+    "separate-outputs": true,
+    "rewrite": {
+      "~(.*)": "$1 ",
+      "(.*) — Mozilla Firefox": "󰈹",
+      "(.*)Mozilla Firefox": "󰈹",
+      "(.*)Spotify(.*)": "󰓇",
+      "(.*)Steam": "󰓓",
+      "(.*) - Discord": " $1 "
+    }
+  },
+
+  "battery": {
+    "format": "{icons}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "interval": "20",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+      "warning": 20,
+      "critical": 5
+    }
+  },
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%a, %b %d}",
+    "tooltip-format": "<big>{:%Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-connected": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "on-click": "pavucontrol -t 3",
+    "tooltip-format": false,
+    "scroll-step": 5,
+    "format-icons": {
+        "headphone": " ",
+        "default": ["", "", ""]
+    }
+  }
+}
