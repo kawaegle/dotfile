@@ -1,4 +1,6 @@
 zsh/hist
 nvim/plugin/
 mpv/watch_later
+tmux/plugins
+systemd/user/default.target.wants
 tags
