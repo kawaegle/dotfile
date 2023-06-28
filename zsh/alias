@@ -55,6 +55,5 @@ alias ping='ping -c 10'
 alias please='sudo'
 alias q='exit'
 alias qrreader='zbarimg -q '
-alias ssh="kitty +kitten ssh"
 alias v='nvim'
-alias valgrind_dbg='valgrind -s --leak-check=full --track-origins=yes'
+alias valgrind_dbg='valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all'
