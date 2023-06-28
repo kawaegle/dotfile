@@ -5,7 +5,6 @@ end
 
 treesitter.setup {
     ensure_installed = {
-        "c",
         "cpp",
         "bash",
         "dockerfile",
@@ -15,8 +14,6 @@ treesitter.setup {
         "json",
         "markdown",
         "python",
-        "lua",
-        "query"
     },
     sync_install = false,
     auto_install = true,
