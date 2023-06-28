@@ -2,9 +2,9 @@ TERM="xterm-kitty"
 PAGER="less"
 LESSHISTFILE="/dev/null"
 EDITOR="nvim"
-PATH="$PATH:$HOME/.local/bin:$HOME/.local/go/bin/:\
-$HOME/.local/script:$HOME/.platformio/penv/bin/"
 GOPATH="$HOME/.cache/go"
+PATH="$PATH:$HOME/.local/bin:$GOPATH/bin/:\
+$HOME/.local/script:$HOME/.platformio/penv/bin/"
 THEME="kawaegle_prompt"
 DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 VAGRANT_DEFAULT_PROVIDER=virtualbox
