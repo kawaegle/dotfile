@@ -27,10 +27,9 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- switch buffer or tab
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- switch or tab
 keymap("n", "<S-Tab>", ":tabprevious<CR>", opts)
+keymap("n", "<Tab>", ":tabnext<CR>", opts)
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 
 -- make and open quickfix
@@ -54,14 +53,9 @@ keymap("n", "<A-j>", ":m '>+1<CR>gv-gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 keymap("n", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
--- cats (because mental health is important)
-keymap("n", "<leader>C", ":PetsNew cat1<CR>", opts)
-keymap("n", "<leader>c", ":PetsHideToggle<CR>", opts)
-
 -- sort selected line
-keymap("v", "<leader>S", ":sort<CR>", opts)
+keymap("v", "<leader>s", ":sort<CR>", opts)
 
--- Cats and other pets
 keymap('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 
