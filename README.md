@@ -40,31 +40,37 @@ download thread from [4chan](https://4chan.org) with or without image from shell
 ### GhostInTheNet
 hide our MAC address on the network so It leave anon trace on network.
 ### dmc.sh
-Compute the distance bettween us and a wi-fi signal from [this equation](https://raw.githubusercontent.com/cryptolok/DMC/master/formula.png)
+Compute the distance bettween us and a wi-fi signal from [this equation](https://raw.githubusercontent².com/cryptolok/DMC/master/formula.png)
 
 ## ZSH
 ### alias
 all alias I need to get the work done
 ### themes
-my poor attempt to create zsh prompts themes
+my poor attempt to create zsh prompts themes (and steal some to ohmyzsh)
 ### zshrc
 the main zsh file that source all other file I need.
 ### plugins
 - calc: allow zsh to understand and do arthmical operation
 - colored-man-pages: because color on man is sexy
+- compressor: script that create more easly archive of all kind
 - countdown: setup a countdown that return true
 - extract: aliased on `x`, allow user to extract most of compressed file without pain
 - gitprompt: for my themes get all element from got repository (mostly change)
 - listbox: select with interactive choice
 - sudo: add/remove sudo in front of command by ESC ESC sequence
+- tmux: manage tmux better
 ### Environment
 Manage my environment variable in a file so I don't stick on a specific file architecture.
 
 ## Systemd
 ### Xremap
 remap at kernel level CapsLock into ESC using user systemd
-### Lock (WIP)
-lock the computer and suspend it (maybe not in the DotAsh because of systemd)
+
+# ToDo
+- wallpaper management for DE integration
+- waybar conf
+- eww (maybe) 
+- themes switcher
 
 # Installation
 The fast easy way to install that dotfile is to use
