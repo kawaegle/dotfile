@@ -1,55 +1,88 @@
+#!/bin/zsh
+
+# game changer aliases
 alias 0='true'
 alias 1='false'
 alias \$=''
-alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage"'
-alias clear='reset'
-alias cpv='rsync -pogbr -hhh -e /dev/null --progress "$@"'
-alias epitest='podman run -it --rm -v $(pwd):/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'
-alias fuckthis='shutdown now'
 
+# git aliases
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
 alias gba='git branch --all'
+alias gbd='git branch -d'
+alias gblame='git blame'
 alias gc='git clone'
 alias gck='git checkout'
 alias gcm='git commit -m'
 alias gcm_init='git commit -m ":tada: init commit"'
 alias gdiff='git diff'
 alias gf='git fetch'
+alias gfp='git fetch --prune'
+alias gfuckup='git reset --hard'
 alias gi='git init'
 alias glog='git log --graph'
 alias gmerge='git merge'
 alias gp='git push'
 alias gpdb='git push --delete'
 alias gpull='git pull'
+alias gres='git reset'
+alias grestore='git restore'
 alias gshort='git shortlog'
 alias gstash='git stash'
 alias gstat='git status'
 alias gsub='git submodule'
+alias gswitch='git switch'
 
-alias ht='htop'
-alias cat='bat'
+# alternative aliases if alternative exist
+if (( $+commands[bat] )); then
+    alias cat='bat'
+else
+    alias cat='cat -n'
+fi
+if (( $+commands[exa] )); then
+    alias l='exa --icons'
+    alias la='exa -la --icons'
+    alias ll='exa -l --icons'
+    alias ls='exa --icons'
+else
+    alias l='ls --color=auto'
+    alias la='ls -la --color=auto'
+    alias ll='ls -l --color=auto'
+    alias ls='ls --color=auto'
+fi
+if (( $+commands[podman] )); then
+    alias docker='podman'
+fi
 alias icat='kitty +kitten icat'
-alias la='exa -la --icons'
-alias l='exa --icons'
-alias ll='exa -l --icons'
-alias ls='exa --icons'
-alias myip='curl --silent ipecho.net/plain'
+alias grep='grep --color=auto'
 
+
+# nmap aliases
 alias nmap_check_for_firewall="sudo nmap -sA -p1-65535 -v -T4"
 alias nmap_check_for_vulns="nmap --script=vuln"
 alias nmap_detect_versions="sudo nmap -sV -p1-65535 -O --osscan-guess -T4 -Pn"
 alias nmap_fast="nmap -F -T5 --version-light --top-ports 300"
+alias nmap_fin="sudo nmap -sF -v"
 alias nmap_full="sudo nmap -sS -T4 -PE -PP -PS80,443 -PY -g 53 -A -p1-65535 -v"
+alias nmap_full_udp="sudo nmap -sS -sU -T4 -A -v -PE -PS22,25,80 -PA21,23,80,443,3389 "
+alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25,80,113,31339 -PA80,113,443,10042 -PO --script all "
+alias nmap_list_interfaces="nmap --iflist"
 alias nmap_open_ports="nmap --open"
 alias nmap_ping_scan="nmap -n -sP"
 alias nmap_ping_through_firewall="nmap -PS -PA"
 alias nmap_slow="sudo nmap -sS -v -T1"
+alias nmap_traceroute="sudo nmap -sP -PE -PS22,25,80 -PA21,23,80,3389 -PU -PO --traceroute "
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
-alias kubectl='minikube kubectl --'
-
+# random aliases
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage"'
+alias clear='reset'
+alias cpv='rsync -pogbr -hhh -e /dev/null --progress "$@"'
+alias epitest='podman run -it --rm -v $(pwd):/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'
+alias fuckthis='shutdown now'
+alias ht='htop'
+alias myip='curl --silent ipecho.net/plain'
 alias pacrefresh='sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist'
 alias ping='ping -c 10'
 alias please='sudo'
@@ -57,3 +90,5 @@ alias q='exit'
 alias qrreader='zbarimg -q '
 alias v='nvim'
 alias valgrind_dbg='valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all'
+alias mkdir='mkdir -pv'
+alias pyshare='python3 -m http.server'
