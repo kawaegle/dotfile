@@ -136,7 +136,6 @@ lsp.on_attach(function(client, buffnr)
     vim.keymap.set("n", "<C-M-space>", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "<C-h>", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<C-l>", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 end)
 
 lsp.setup()

@@ -42,8 +42,8 @@
     "separate-outputs": true,
     "rewrite": {
       "~(.*)": "$1 ",
-      "(.*) — Mozilla Firefox": "󰈹",
-      "(.*)Mozilla Firefox": "󰈹",
+      "(.*) — Mozilla Firefox": "󰈹: firefox",
+      "(.*)Mozilla Firefox": "󰈹: firefox",
       "(.*)Spotify(.*)": "󰓇",
       "(.*)Steam": "󰓓",
       "(.*) - Discord": " $1 "

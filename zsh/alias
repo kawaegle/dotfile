@@ -54,9 +54,16 @@ fi
 if (( $+commands[podman] )); then
     alias docker='podman'
 fi
-alias icat='kitty +kitten icat'
+if (( $+commands[minikube] )); then
+    alias kubectl='minikube kubectl --'
+fi
+alias cp='cp -v'
 alias grep='grep --color=auto'
-
+alias ht='htop'
+alias icat='kitty +kitten icat'
+alias mkdir='mkdir -pv'
+alias mv='mv -v'
+alias rm='rm -vi'
 
 # nmap aliases
 alias nmap_check_for_firewall="sudo nmap -sA -p1-65535 -v -T4"
@@ -81,7 +88,6 @@ alias clear='reset'
 alias cpv='rsync -pogbr -hhh -e /dev/null --progress "$@"'
 alias epitest='podman run -it --rm -v $(pwd):/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'
 alias fuckthis='shutdown now'
-alias ht='htop'
 alias myip='curl --silent ipecho.net/plain'
 alias pacrefresh='sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist'
 alias ping='ping -c 10'
@@ -90,5 +96,4 @@ alias q='exit'
 alias qrreader='zbarimg -q '
 alias v='nvim'
 alias valgrind_dbg='valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all'
-alias mkdir='mkdir -pv'
-alias pyshare='python3 -m http.server'
+alias pyserver='python3 -m http.server'

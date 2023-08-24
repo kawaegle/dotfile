@@ -1,6 +1,6 @@
 #Manage Env
-test -z $DOT && DOT="$HOME/.local/share/Dotfile"
-test -z $ZSH_DOT && ZSH_DOT="$DOT/zsh"
+: ${DOT:="$HOME/.local/share/Dotfile"}
+: ${ZSH_DOT="$DOT/zsh"}
 set -a; source $ZSH_DOT/env; set +a
 
 autoload -Uz compinit
