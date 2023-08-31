@@ -55,7 +55,7 @@ if (( $+commands[podman] )); then
     alias docker='podman'
 fi
 if (( $+commands[minikube] )); then
-    alias kubectl='minikube kubectl --'
+    alias mkubectl='minikube kubectl --'
 fi
 alias cp='cp -v'
 alias grep='grep --color=auto'
