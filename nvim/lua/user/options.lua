@@ -56,6 +56,12 @@ vim.g.editorconfig = true
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescript' },
+  command = 'setlocal shiftwidth=2 tabstop=2'
+})
+
+
 vim.api.nvim_create_autocmd({"InsertLeave"}, {
     pattern = "*",
     callback = function ()
