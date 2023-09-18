@@ -40,11 +40,11 @@ if (( $+commands[bat] )); then
 else
     alias cat='cat -n'
 fi
-if (( $+commands[exa] )); then
-    alias l='exa --icons'
-    alias la='exa -la --icons'
-    alias ll='exa -l --icons'
-    alias ls='exa --icons'
+if (( $+commands[eza] )); then
+    alias l='eza --icons'
+    alias la='eza -la --icons'
+    alias ll='eza -l --icons'
+    alias ls='eza --icons'
 else
     alias l='ls --color=auto'
     alias la='ls -la --color=auto'
