@@ -57,7 +57,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
 vim.api.nvim_create_autocmd('Filetype', {
-  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescript' },
+  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescriptreact' },
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
