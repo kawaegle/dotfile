@@ -9,14 +9,6 @@ or not status_luasnip or not status_lspkind then
 end
 
 lsp.preset("recommended")
-lsp.ensure_installed({
-    "clangd",
-    "dockerls",
-    "docker_compose_language_service",
-    "gopls",
-    "jsonls",
-    "pyright",
-})
 
 require('mason').setup({
     ui = {
@@ -27,6 +19,20 @@ require('mason').setup({
             package_uninstalled = "✗"
         }
     }
+})
+
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "clangd",
+    "dockerls",
+    "docker_compose_language_service",
+    "gopls",
+    "jsonls",
+    "pyright",
+    },
+  handlers = {
+    lsp.default_setup,
+  },
 })
 
 lsp.set_preferences({
@@ -94,10 +100,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings,
-})
-
 cmp.setup({
     formatting = {
         fields = {"abbr", "kind", "menu"},
@@ -112,6 +114,7 @@ cmp.setup({
             return item
         end
     },
+    mapping = cmp_mappings,
     sources = {
         {name = 'nvim_lsp'},
         {name = 'luasnip'},
