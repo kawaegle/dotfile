@@ -5,10 +5,13 @@ EDITOR="nvim"
 DOT="$HOME/.local/share/dotfile/"
 ZSH_DOT="$DOT/zsh"
 GOPATH="$HOME/.cache/go"
-PATH="$PATH:$HOME/.local/bin:$GOPATH/bin/:\
-$HOME/.local/script:$HOME/.platformio/penv/bin/"
+PATH="$PATH:\
+    $HOME/.local/bin:\
+    $GOPATH/bin/:\
+    $HOME/.local/script:\
+    $HOME/.platformio/penv/bin/"
 THEME="blackarch"
-DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+DEBUGINFOD_URLS="https://debuginfod.debian.net"
 VAGRANT_DEFAULT_PROVIDER=virtualbox
 VAGRANT_HOME="$HOME/.cache/vagrant.d"
 SCRIPT=$DOT/script
@@ -23,3 +26,4 @@ ZSH_TMUX_FIXTERM_WITHOUT_256COLOR=screen
 ZSH_TMUX_FIXTERM_WITH_256COLOR=screen-256color
 ZSH_TMUX_CONFIG="$HOME/.tmux.conf"
 ZSH_TMUX_UNICODE=true
+DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
