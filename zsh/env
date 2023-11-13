@@ -5,11 +5,13 @@ EDITOR="nvim"
 DOT="$HOME/.local/share/dotfile/"
 ZSH_DOT="$DOT/zsh"
 GOPATH="$HOME/.cache/go"
+
 PATH="$PATH:\
-    $HOME/.local/bin:\
-    $GOPATH/bin/:\
-    $HOME/.local/script:\
-    $HOME/.platformio/penv/bin/"
+$HOME/.local/bin:\
+$GOPATH/bin/:\
+$HOME/.local/script:\
+$HOME/.platformio/penv/bin/"
+
 THEME="blackarch"
 DEBUGINFOD_URLS="https://debuginfod.debian.net"
 VAGRANT_DEFAULT_PROVIDER=virtualbox
