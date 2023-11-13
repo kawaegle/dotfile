@@ -14,13 +14,24 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { 'wbthomason/packer.nvim' }, -- packet manager
+    { 'stevearc/dressing.nvim' }, -- UI styler
+    { "NStefan002/speedtyper.nvim",
+      cmd = "Speedtyper",
+      dependencies = { 'rcarriga/nvim-notify' },
+      opts = {}
+    },
     { 'folke/tokyonight.nvim' }, -- themes
     { 'mbbill/undotree' }, -- manage undo as a tree
     { 'romainl/vim-qf' }, -- better quickfix management (TODO: implement it with telescope)
     { 'nvim-telescope/telescope.nvim', --telescope picker file finder
-      tag = '0.1.3',
-      dependencies = { 'nvim-lua/plenary.nvim' }},
+      tag = '0.1.4',
+      dependencies = {
+          'nvim-lua/plenary.nvim',
+          'nvim-telescope/telescope-ui-select.nvim',
+          'rcarriga/nvim-notify'
+      }},
     { 'nvim-treesitter/nvim-treesitter' }, -- treesitter algo
+    { 'FelipeIzolan/markviewer.nvim' },
     { 'nvim-tree/nvim-tree.lua', -- file tree explorer
       dependencies = { 'nvim-tree/nvim-web-devicons' }},
     { 'Nero-F/vim-tek-header' }, -- need to remove it soon as possible
