@@ -11,7 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("lazy").setup({
     { 'wbthomason/packer.nvim' }, -- packet manager
     { 'stevearc/dressing.nvim' }, -- UI styler
@@ -31,7 +30,6 @@ require("lazy").setup({
           'rcarriga/nvim-notify'
       }},
     { 'nvim-treesitter/nvim-treesitter' }, -- treesitter algo
-    { 'FelipeIzolan/markviewer.nvim' },
     { 'nvim-tree/nvim-tree.lua', -- file tree explorer
       dependencies = { 'nvim-tree/nvim-web-devicons' }},
     { 'Nero-F/vim-tek-header' }, -- need to remove it soon as possible
