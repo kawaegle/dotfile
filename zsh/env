@@ -6,15 +6,21 @@ DOT="$HOME/.local/share/dotfile/"
 ZSH_DOT="$DOT/zsh"
 GOPATH="$HOME/.cache/go"
 
+ANDROID_HOME="$HOME/.local/Android"
+ANDROID_PATH="$ANDROID_HOME/cmdline-tools/latest/bin:\
+$ANDROID_HOME/emulator:\
+$ANDROID_HOME/platform-tools"
+
 PATH="$PATH:\
 $HOME/.local/bin:\
 $GOPATH/bin/:\
 $HOME/.local/script:\
-$HOME/.platformio/penv/bin/"
+$HOME/.platformio/penv/bin/:\
+$ANDROID_PATH"
 
 THEME="blackarch"
 DEBUGINFOD_URLS="https://debuginfod.debian.net"
-VAGRANT_DEFAULT_PROVIDER=virtualbox
+VAGRANT_DEFAULT_PROVIDER=libvirt
 VAGRANT_HOME="$HOME/.cache/vagrant.d"
 SCRIPT=$DOT/script
 DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
