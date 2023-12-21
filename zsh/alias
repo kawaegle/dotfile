@@ -1,70 +1,76 @@
 #!/bin/zsh
 
 # game changer aliases
-alias 0='true'
-alias 1='false'
-alias \$=''
+alias 0="true"
+alias 1="false"
+alias \$=""
 
 # git aliases
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gba='git branch --all'
-alias gbd='git branch -d'
-alias gblame='git blame'
-alias gc='git clone'
-alias gck='git checkout'
-alias gcm='git commit -S -m'
-alias gcm_init='git commit -m ":tada: init commit"'
-alias gdiff='git diff'
-alias gf='git fetch'
-alias gfp='git fetch --prune'
-alias gfuckup='git reset --hard'
-alias gi='git init'
-alias glog='git log --graph --show-signature'
-alias ginfo='git log --graph --show-signature --shortstat'
-alias gmerge='git merge'
-alias gp='git push'
-alias gpdb='git push --delete'
-alias gpull='git pull'
-alias gres='git reset'
-alias grestore='git restore'
-alias gshort='git shortlog'
-alias gstash='git stash'
-alias gstat='git status'
-alias gsub='git submodule'
-alias gswitch='git switch'
+alias g="git"
+alias ga="git add"
+alias gb="git branch"
+alias gba="git branch --all"
+alias gbd="git branch -d"
+alias gblame="git blame"
+alias gc="git clone"
+alias gck="git checkout"
+alias gcm="git commit -S -m"
+alias gcm_init="git commit -m ':tada: init commit'"
+alias gdiff="git diff"
+alias gf="git fetch"
+alias gfp="git fetch --prune"
+alias gfuckup="git reset --hard"
+alias gi="git init"
+alias glog="git log --graph --show-signature"
+alias ginfo="git log --graph --show-signature --shortstat"
+alias gmerge="git merge"
+alias gp="git push"
+alias gpdb="git push --delete"
+alias gpull="git pull"
+alias gres="git reset"
+alias grestore="git restore"
+alias gshort="git shortlog"
+alias gstash="git stash"
+alias gstat="git status"
+alias gsub="git submodule"
+alias gswitch="git switch"
+
+# upgrade of standard commands
+alias cp="cp -v"
+alias grep="grep --color=auto"
+alias ht="htop"
+alias icat="kitty +kitten icat"
+alias mkdir="mkdir -pv"
+alias mv="mv -v"
+alias rm="rm -vi"
 
 # alternative aliases if alternative exist
 if (( $+commands[bat] )); then
-    alias cat='bat'
+    alias cat="bat"
 else
-    alias cat='cat -n'
+    alias cat="cat -n"
 fi
 if (( $+commands[eza] )); then
-    alias l='eza --icons'
-    alias la='eza -la --icons'
-    alias ll='eza -l --icons'
-    alias ls='eza --icons'
+    alias l="eza --icons=always"
+    alias la="eza -la --icons=always"
+    alias ll="eza -l --icons=always"
+    alias ls="eza --icons=always"
+    alias tree="eza --icons=always --tree"
 else
-    alias l='ls --color=auto'
-    alias la='ls -la --color=auto'
-    alias ll='ls -l --color=auto'
-    alias ls='ls --color=auto'
+    alias l="ls --color=auto"
+    alias la="ls -la --color=auto"
+    alias ll="ls -l --color=auto"
+    alias ls="ls --color=auto"
 fi
 if (( $+commands[podman] )); then
-    alias docker='podman'
+    alias docker="podman"
+fi
+if (( $+commands[podman-compose] )); then
+    alias docker-compose="podman-compose"
 fi
 if (( $+commands[minikube] )); then
-    alias mkubectl='minikube kubectl --'
+    alias mkubectl="minikube kubectl --"
 fi
-alias cp='cp -v'
-alias grep='grep --color=auto'
-alias ht='htop'
-alias icat='kitty +kitten icat'
-alias mkdir='mkdir -pv'
-alias mv='mv -v'
-alias rm='rm -vi'
 
 # nmap aliases
 alias nmap_check_for_firewall="sudo nmap -sA -p1-65535 -v -T4"
@@ -84,17 +90,17 @@ alias nmap_traceroute="sudo nmap -sP -PE -PS22,25,80 -PA21,23,80,3389 -PU -PO --
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
 # random aliases
-alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage"'
-alias clear='reset'
-alias cpv='rsync -pogbr -hhh -e /dev/null --progress "$@"'
-alias epitest='podman run -it --rm -v $(pwd):/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'
-alias fuckthis='shutdown now'
-alias myip='curl --silent ipecho.net/plain'
-alias pacrefresh='sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist'
-alias ping='ping -c 10'
-alias please='sudo'
-alias q='exit'
-alias qrreader='zbarimg -q '
-alias v='nvim'
-alias valgrind_dbg='valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all'
-alias pyserver='python3 -m http.server'
+alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage""
+alias clear="reset"
+alias cpv="rsync -pogbr -hhh -e /dev/null --progress "$@""
+alias epitest="podman run -it --rm -v $(pwd):/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash"
+alias fuckthis="shutdown now"
+alias myip="curl --silent ipecho.net/plain"
+alias pacrefresh="sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist"
+alias ping="ping -c 10"
+alias please="sudo"
+alias q="exit"
+alias qrreader="zbarimg -q "
+alias v="nvim"
+alias valgrind_dbg="valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all"
+alias pyserver="python3 -m http.server"
