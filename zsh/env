@@ -1,3 +1,4 @@
+GPG_TTY="$(tty)"
 TERM="xterm-kitty"
 PAGER="less"
 LESSHISTFILE="/dev/null"
@@ -25,6 +26,7 @@ VAGRANT_HOME="$HOME/.cache/vagrant.d"
 SCRIPT=$DOT/script
 DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 LDPRELOAD=""
+
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=false
