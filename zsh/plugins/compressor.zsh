@@ -70,3 +70,4 @@ tlz (tar.lzma), txz (tar.xz), tZ (tar.Z), xz, Z, zip, and zst."
     *) print -u2 -- "$usage"; return 1 ;;
   esac
 }
+alias compressor=ua
