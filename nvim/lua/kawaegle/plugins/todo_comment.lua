@@ -47,5 +47,6 @@ return {
             pattern = [[\b(KEYWORDS):]],
         },
     })
+    vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<CR>", { desc = "Fuzzy find ToDo and other comment" })
   end
 }

@@ -17,6 +17,7 @@ return {
         relativenumber = false,
       },
       renderer = {
+        symlink_destination = true,
         indent_markers = {
           enable = true,
         },

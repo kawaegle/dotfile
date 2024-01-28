@@ -1,11 +1,11 @@
 local options = {
     backup = false,
     clipboard = "unnamedplus",
-    cmdheight = 0,
+    cmdheight = 1,
     completeopt = { "menuone", "noselect" },
     conceallevel = 0,
     fileencoding = "utf-8",
-    hlsearch = false,
+    hlsearch = true,
     incsearch = true,
     ignorecase = true,
     mouse = "n",
@@ -55,19 +55,3 @@ vim.g.editorconfig = true
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-
-vim.api.nvim_create_autocmd('Filetype', {
-  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescriptreact' },
-  command = 'setlocal shiftwidth=2 tabstop=2'
-})
-
-
-vim.api.nvim_create_autocmd({"InsertLeave"}, {
-    pattern = "*",
-    callback = function ()
-        if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
-            return
-        end
-        vim.cmd [[ :%s/\s\+$//e ]]
-    end,
-})

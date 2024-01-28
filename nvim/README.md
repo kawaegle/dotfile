@@ -6,8 +6,8 @@ This is a minimal NVim configuration for a daily use.
 
 Here are some keybindings that are used in this config :
 `<leader>`: space as leader  
-`<C- >` (control space) : opens a beautiful floating window with the error/warning on the current line  
-`<C-n` (control n) : toggles NvimTree (file explorer on left side)  
+`<leader>km`: Telescope fuzzy finder for all keymap setup on nvim  
+`<C-n>` (control n) : toggles NvimTree (file explorer on left side)  
 `<leader>v` (space v) : equivalent to `:vsplit`  
 `<leader>s` (space s) : equivalent to `:split`  
 `<leader>m` (space m) : for C, C++ or even go and other language that can use make, run Makefile and opens program  
@@ -15,7 +15,6 @@ Here are some keybindings that are used in this config :
 `<leader>ww` (space double w) : force save equivalent to `:w!`  
 `<leader>qq` (space double q) : force quit equivalent to `:q!`  
 `<leader>wq` (space w q) : equivalent to `:wq`  
-`<leader>C` (space shift c) : creates a cute cat in your nvim `<leader>c` (space c) : once the cute cat is created, toggle show/hide the cat  
 
 ### Features
 
