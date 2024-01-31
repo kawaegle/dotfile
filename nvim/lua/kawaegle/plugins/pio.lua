@@ -17,12 +17,8 @@ local function check_platformio()
 
     -- Check if the file exists
     if fileExists(target_file) then
-        -- Do something if the file exists
-        print("platformio.ini found at the root!")
         return true
     else
-        -- Do something else if the file doesn't exist
-        print("platformio.ini not found at the root.")
         return false
     end
 end

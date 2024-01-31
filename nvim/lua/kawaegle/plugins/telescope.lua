@@ -35,7 +35,7 @@ return {
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
-    vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Fuzzy find files in git in cwd" })
+    vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Fuzzy find files in git in cwd" })
     vim.keymap.set("n", "<leader>gr", "<cmd>Telescope live_grep<CR>", { desc = "Fuzzy find string in cwd" })
     vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "FZF on vim help pages "})
     vim.keymap.set("n", "<leader>fm", "<cmd>lua require('telescope.builtin').man_pages()<cr>", { desc = "FZF on man pages "})
