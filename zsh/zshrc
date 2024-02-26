@@ -1,7 +1,8 @@
-#Manage Env
+# Manage Env
 : ${DOT:="$HOME/.local/share/dotfile"}
 : ${ZSH_DOT="$DOT/zsh"}
 set -a; source $ZSH_DOT/env; set +a
+set -a; source $ZSH_DOT/de_env; set +a
 
 autoload -Uz compinit
 autoload -U promptinit
@@ -10,7 +11,7 @@ colors
 promptinit
 compinit -D
 
-#Load Alias and Plugins
+# Load Alias and Plugins
 source $ZSH_DOT/alias
 setopt auto_cd
 for p in "$ZSH_DOT/plugins/"*
@@ -18,20 +19,20 @@ do
     source $p
 done
 
-#Load Themes from Themes folder
+# Load Themes from Themes folder
 for theme in "$ZSH_DOT/themes/"*
 do
     check_theme=${${theme%.zsh}##*/}
-    if [[ $THEME == "$check_theme" ]]; then
+    if [[ $ZSH_THEME == "$check_theme" ]]; then
         source $theme
         break
     fi
 done
 
-#Completion
+# Completion
 setopt correct_all
 setopt autocd autopushd
-setopt interactive_comments # maybe remove it so # can be a correct sudo spawn
+setopt interactive_comments # maybe remove it so # can be a corrected as sudo
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -41,7 +42,7 @@ zstyle ':completion:*:(cp|rm|mv):*' ignore-line yes
 zstyle ':completion:*:functions' ignored-patterns '_*' # ignore completion for non-existant commands
 zstyle ':completion:*' menu select=0
 
-#Pip completion
+# Pip completion
 function _pip_completion {
     local words cword
     read -Ac words
@@ -52,7 +53,7 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-#History option
+# History option
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt share_history
@@ -65,7 +66,7 @@ SAVEHIST=10000
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-#Keybind
+# Keybind
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 bindkey '^[[H' beginning-of-line
