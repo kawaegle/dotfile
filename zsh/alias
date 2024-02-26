@@ -95,7 +95,7 @@ alias cpv="rsync -pogbr -hhh -e /dev/null --progress "$@""
 alias epitest="podman run -it --rm -v $(pwd):/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash"
 alias fuckthis="shutdown now"
 alias myip="curl --silent ipecho.net/plain"
-alias pacrefresh="sudo reflector -c FR -c US -c GB -c PL -n 100 --protocol http,https --save /etc/pacman.d/mirrorlist"
+alias pacrefresh="sudo reflector -c FR -c GB -c PL -n 50 --protocol http,https --save /etc/pacman.d/mirrorlist"
 alias ping="ping -c 10"
 alias please="sudo"
 alias q="exit"
@@ -106,4 +106,4 @@ alias pyserver="python3 -m http.server"
 
 
 #RZ-book
-alias rz-book="podman run --name rz-book --rm -p3000:3000 rz-book:latest"
+alias rz-book="podman run --name rz-book --rm -p3000:3000 rz-book:latest -d"
