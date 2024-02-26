@@ -3,7 +3,7 @@ TERM="xterm-kitty"
 PAGER="less"
 LESSHISTFILE="/dev/null"
 EDITOR="nvim"
-DOT="$HOME/.local/share/dotfile/"
+DOT="$HOME/.local/share/dotfile"
 ZSH_DOT="$DOT/zsh"
 GOPATH="$HOME/.cache/go"
 
@@ -19,7 +19,7 @@ $HOME/.local/script:\
 $HOME/.platformio/penv/bin/:\
 $ANDROID_PATH"
 
-THEME="blackarch"
+ZSH_THEME="blackarch"
 DEBUGINFOD_URLS="https://debuginfod.debian.net"
 VAGRANT_DEFAULT_PROVIDER=libvirt
 VAGRANT_HOME="$HOME/.cache/vagrant.d"
