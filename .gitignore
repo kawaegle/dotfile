@@ -3,4 +3,9 @@ nvim/lazy-lock.json
 mpv/watch_later
 tmux/plugins
 systemd/user/default.target.wants
+PrusaSlicer/cache
+PrusaSlicer/physical_printer
+PrusaSlicer/shapes
+PrusaSlicer/sla*
+PrusaSlicer/snapshots
 tags
