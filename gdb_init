@@ -2,5 +2,5 @@ source /usr/share/pwndbg/gdbinit.py
 set history save on
 set history size 1000
 set history remove-duplicates 2
-set history filename ~/.gdb_history
+set history filename ~/.cache/gdb_history
 set debuginfod enabled on
