@@ -4,6 +4,7 @@
 alias 0="true"
 alias 1="false"
 alias \$=""
+alias \#=""
 
 # git aliases
 alias g="git"
@@ -103,7 +104,13 @@ alias qrreader="zbarimg -q "
 alias v="nvim"
 alias valgrind_dbg="valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all"
 alias pyserver="python3 -m http.server"
+alias rz="rizin"
 
+# edit dotfile
+alias valias="nvim $ZSH_DOT/alias"
+alias vzsh="nvim $ZSH_DOT/"
+alias vdot="nvim $DOT/"
+alias vnvim="nvim $DOT/nvim"
 
 #RZ-book
-alias rz-book="podman run --name rz-book --rm -p3000:3000 rz-book:latest -d"
+alias rz-book="podman run --name rz-book --rm -d -p 3000:80 rz-book:latest && firefox localhost:3000"
