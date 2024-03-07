@@ -52,6 +52,11 @@ function _pip_completion {
         PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
 }
 compctl -K _pip_completion pip
+# Vagrant command completion
+fpath=(/opt/vagrant/embedded/gems/gems/vagrant-*/contrib/zsh $fpath)
+
+# All ZSH completion
+fpath=(/usr/share/zsh/site-functions/ $fpath)
 
 # History option
 setopt hist_ignore_all_dups
@@ -85,7 +90,4 @@ else
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
 
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.3.6/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)
+
