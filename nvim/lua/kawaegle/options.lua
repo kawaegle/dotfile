@@ -33,7 +33,7 @@ local options = {
     wrap = true,
     scrolloff = 8,
     sidescrolloff = 8,
-    listchars = "eol:↓,trail:●,space:·",
+    listchars = "eol:↓,trail:●,space:·,tab:  ",
     list = true,
     termguicolors = true,
     encoding = 'utf-8',
@@ -44,6 +44,27 @@ vim.opt.shortmess:append "c"
 for i, j in pairs(options) do
     vim.opt[i] = j
 end
+
+vim.diagnostic.config({
+  virtual_text = true,
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+      border = 'rounded',
+      source = 'always',
+  },
+})
+
+local keymap = vim.keymap
+local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " "}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
