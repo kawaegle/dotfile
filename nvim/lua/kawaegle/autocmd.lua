@@ -14,6 +14,8 @@ vim.api.nvim_create_autocmd({"InsertLeave"}, {
         if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
             return
         end
+        local pos = vim.api.nvim_win_get_cursor(0)
         vim.cmd [[ :%s/\s\+$//e ]]
+        vim.api.nvim_win_set_cursor(0, pos)
     end,
 })
