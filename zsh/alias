@@ -103,8 +103,11 @@ alias q="exit"
 alias qrreader="zbarimg -q "
 alias v="nvim"
 alias valgrind_dbg="valgrind -s --leak-check=full --track-origins=yes --show-leak-kinds=all"
+alias pass_gen="</dev/urandom tr -dc 'A-Za-z0-9!#$%&()*+,-./:;<=>?@[\]^_{|}' | head -c 15; echo"
 alias pyserver="python3 -m http.server"
 alias rz="rizin"
+alias :h="man"
+alias x="extract"
 
 # edit dotfile
 alias valias="nvim $ZSH_DOT/alias"
