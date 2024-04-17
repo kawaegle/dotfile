@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 autoload -U zcalc
 function __calc_plugin {
     zcalc -f -e "$*"

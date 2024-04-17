@@ -1,5 +1,4 @@
 #! /bin/zsh
-alias x=extract
 
 extract() {
     local remove_archive
@@ -7,11 +6,10 @@ extract() {
     local extract_dir
 
     if (( $# == 0 )); then
-        echo <-'EOF'
-            Usage: extract [-option] [file ...]
-            Options:
-                -r, --remove    Remove archive after unpacking.
-         EOF
+        echo \
+"Usage: extract [-option] [file ...]
+Options:
+    -r, --remove    Remove archive after unpacking."
     fi
 
     remove_archive=1

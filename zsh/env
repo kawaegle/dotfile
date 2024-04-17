@@ -1,6 +1,7 @@
 GPG_TTY="$(tty)"
 TERM="xterm-kitty"
 PAGER="less"
+GROFF_NO_SGR=1
 LESSHISTFILE="/dev/null"
 EDITOR="nvim"
 DOT="$HOME/.local/share/dotfile"

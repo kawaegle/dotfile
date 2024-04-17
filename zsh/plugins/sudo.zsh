@@ -1,10 +1,11 @@
 #!/bin/zsh
+
 sudo-command-line() {
     [[ -z $BUFFER ]] && LBUFFER="$(fc -ln -1)"
 
     # Save beginning space
     local WHITESPACE=""
-    if [[ ${LBUFFER:0:1} == " " ]] ; then 
+    if [[ ${LBUFFER:0:1} == " " ]] ; then
         WHITESPACE=" "
         LBUFFER="${LBUFFER:1}"
     fi

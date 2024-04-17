@@ -12,6 +12,13 @@
 # - $FZF_ALT_C_COMMAND
 # - $FZF_ALT_C_OPTS
 
+
+if (( ! $+commands[fzf] )); then
+    bindkey -v
+    bindkey '^r' history-incremental-pattern-search-backward
+    return
+fi
+
 [[ -o interactive ]] || return 0
 
 

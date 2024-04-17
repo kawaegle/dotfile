@@ -89,5 +89,3 @@ if [ -z "$LS_COLORS" ]; then
 else
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
-
-source /usr/share/fzf/key-bindings.zsh
