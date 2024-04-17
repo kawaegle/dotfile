@@ -1,13 +1,13 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
-    "VonHeikemen/lsp-zero.nvim",
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
@@ -74,7 +74,17 @@ return {
         sources = {
             {name = 'nvim_lsp'},
             {name = 'luasnip'},
-            {name = 'buffer'},
+            {name = 'buffer',
+                option = {
+                    get_bufnrs = function()
+                        local bufs = {}
+                        for _, win in ipairs(vim.api.nvim_list_wins()) do
+                            bufs[vim.api.nvim_win_get_buf(win)] = true
+                        end
+                        return vim.tbl_keys(bufs)
+                    end
+                }
+            },
             {name = 'path'},
         },
         confirm_opts = {
