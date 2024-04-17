@@ -1,1 +1,1 @@
-e tcp.islocal = test
+e asm.sub.jmp = true
