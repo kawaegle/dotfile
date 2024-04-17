@@ -32,7 +32,7 @@ keymap("n", "<C-t>", ":tabnew<CR>", {noremap = true, silent = true, desc = "crea
 keymap("n", "<leader>m", ":make<CR><CR>:copen<CR>", {noremap = true, silent = true, desc = "Start :make and open directly quickfix list"})
 
 -- no search hightlight
-keymap("n", "<leader><leader>", ":noh<CR>", {noremap = true, silent = true, desc = "disable search hightlight"})
+keymap("n", "<leader><leader>", ":noh<CR>:let @/ = ''<CR>", {noremap = true, silent = true, desc = "disable search hightlight"})
 
 -- save and quit
 keymap("n", "<leader>ww", ":w!<CR>", {noremap = true, silent = true, desc = "force save file"})
