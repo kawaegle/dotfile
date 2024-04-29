@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('Filetype', {
   command = 'setlocal autoindent noexpandtab tabstop=4 shiftwidth=4'
 })
 
-vim.api.nvim_create_autocmd({"InsertLeave"}, {
+vim.api.nvim_create_autocmd({"BufWrite"}, {
     pattern = "*",
     callback = function ()
         if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
