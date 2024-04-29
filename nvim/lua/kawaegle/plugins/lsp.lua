@@ -68,14 +68,6 @@ return {
           vim.keymap.set("n", "<C-M-space>", function() vim.diagnostic.open_float() end, opts)
       end)
 
-      -- lsp_zero.set_preferences({
-      --     suggest_lsp_servers = false,
-      --     setup_servers_on_start = true,
-      --     set_lsp_keymaps = true,
-      --     configure_diagnostics = true,
-      --     cmp_capabilities = true,
-      -- })
-      --
       require("mason").setup({
         ui = {
           border = "rounded",
@@ -101,7 +93,6 @@ return {
             lsp_zero.default_setup
         },
       })
-      -- lsp_zero.setup()
     end
   }
 }
