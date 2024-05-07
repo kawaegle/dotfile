@@ -52,6 +52,8 @@ function _pip_completion {
         PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
 }
 compctl -K _pip_completion pip
+eval "$(register-python-argcomplete pipx)"
+
 # Vagrant command completion
 fpath=(/opt/vagrant/embedded/gems/gems/vagrant-*/contrib/zsh $fpath)
 
