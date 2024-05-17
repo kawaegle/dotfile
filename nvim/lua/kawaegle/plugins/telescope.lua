@@ -15,12 +15,6 @@ return {
     local builtin = require("telescope.builtin")
 
     telescope.setup({
-      extensions = {
-        ["ui-select"] = {
-          themes.get_dropdown {
-          }
-        }
-      },
       defaults = {
         path_display = { "truncate " },
         mappings = {
@@ -36,10 +30,11 @@ return {
     telescope.load_extension("ui-select")
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Fuzzy find files in git in cwd" })
-    vim.keymap.set("n", "<leader>gr", "<cmd>Telescope live_grep<CR>", { desc = "Fuzzy find string in cwd" })
-    vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "FZF on vim help pages "})
-    vim.keymap.set("n", "<leader>fm", "<cmd>lua require('telescope.builtin').man_pages()<cr>", { desc = "FZF on man pages "})
-    vim.keymap.set("n", "<leader>fq", "<cmd>lua require('telescope.builtin').quickfix()<cr>", { desc = "telescope on quickfix list "})
-    vim.keymap.set("n", "<leader>km", "<cmd>lua require('telescope.builtin').keymaps()<cr>", { desc = "show and search all keymaps setup "})
+    vim.keymap.set("n", "<leader>gr", builtin.live_grep, { desc = "Fuzzy find string in cwd" })
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "FZF on vim help pages "})
+    vim.keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "FZF on man pages "})
+    vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "telescope on quickfix list "})
+    vim.keymap.set("n", "<leader>km", builtin.keymaps, { desc = "show and search all keymaps setup "})
+    vim.keymap.set("n", "<leader>ft", builtin.tags, { desc = "search throught all tags"})
   end
 }
