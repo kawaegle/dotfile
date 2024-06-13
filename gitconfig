@@ -1,0 +1,29 @@
+[user]
+	name = K4W43GL3
+	email = kawaegle@mail.oppaiweeb.tech
+	signingkey = kawaegle@mail.oppaiweeb.tech
+[core]
+	editor = nvim
+	pager = less -F -X
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false
+[commit]
+	gpgsign = true
+[advice]
+	detachedHead = false
+[color]
+	branch = always
+	diff = always
+	status = always
+	ui = always
+[color "branch"]
+	current = red
+	local = cyan
+	remote = green
+[fetch]
+	prune = true
+[diff]
+	wsErrorHighlight = all
+
