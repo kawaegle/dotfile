@@ -6,13 +6,18 @@ modmap:
 keymap:
   - name: music player
     remap:
-      CTRL-SHIFT-h: KEY_PREVIOUSSONG
-      CTRL-SHIFT-l: KEY_NEXTSONG
-      CTRL-SHIFT-p: KEY_PLAYPAUSE
+      SUPER-SHIFT-p: KEY_PLAYPAUSE
+      SUPER-SHIFT-h: KEY_PREVIOUSSONG
+      SUPER-SHIFT-j: KEY_VOLUMEDOWN
+      SUPER-SHIFT-k: KEY_VOLUMEUP
+      SUPER-SHIFT-l: KEY_NEXTSONG
+
 
   - name: CTRL MAJ on firefox
     application:
-      only: firefox
+      only:
+        - firefox
+        - discord
     remap:
       CTRL-SHIFT-c: KEY_COPY
       CTRL-SHIFT-v: KEY_PASTE
