@@ -1,3 +1,4 @@
 return {
-    "ludovicchabant/vim-gutentags"
+    "ludovicchabant/vim-gutentags",
+    lazy = true
 }
