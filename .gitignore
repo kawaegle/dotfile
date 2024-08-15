@@ -17,3 +17,4 @@ systemd/user/sockets.target.wants
 tags
 tmux/plugins
 zsh/hist
+Thunar/accels.scm
