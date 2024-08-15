@@ -3,7 +3,8 @@ Description=xremap
 
 [Service]
 Type=simple
-Restart=always
+Restart=no
+TimeoutStopSec=1s
 ExecStart=xremap /home/kawaegle/.config/xremap.yml
 
 [Install]
