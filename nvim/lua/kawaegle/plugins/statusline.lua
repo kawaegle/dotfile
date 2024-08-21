@@ -17,10 +17,11 @@ return {
         lualine_c = {},
 
         lualine_x = {
-            {
-              lazy_status.updates,
-              cond = lazy_status.has_updates
-            },
+            'diagnostics',
+            -- {
+            --   lazy_status.updates,
+            --   cond = lazy_status.has_updates
+            -- },
             {
               'filetype',
               colored = true,   -- Displays filetype icon in color if set to true
