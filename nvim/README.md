@@ -16,6 +16,25 @@ Here are some keybindings that are used in this config :
 `<leader>qq` (space double q) : force quit equivalent to `:q!`  
 `<leader>wq` (space w q) : equivalent to `:wq`  
 
+### Plugins list
+- autopair to automaticly close `'"({[`
+- cmp completions framework 
+- colorhex to see color based on hexa, base64, html code, and more
+- git_conflict solver
+- git sign to see if line were modified
+- icons for nerdtree
+- LSP using mason and lsp-zero
+- NvimTree file explorer
+- pio arduino alternative
+- plenary
+- better quickfix list 
+- rainbow pair 
+- statusline 
+- Telescope
+- todo_comment 
+- treesiter
+- undotree
+
 ### Features
 
 The lualine was modified to get a beautiful and useful line, without denaturing the vim look and feel.  

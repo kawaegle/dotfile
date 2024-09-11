@@ -1,12 +1,12 @@
 return {
-    "hiphish/rainbow-delimiters.nvim",
-    event = "BufReadPre",
-    -- event = "VeryLazy",
-    config = function()
+  "hiphish/rainbow-delimiters.nvim",
+  event = "BufReadPre",
+  -- event = "VeryLazy",
+  config = function()
     local rainbow_delimiters = require 'rainbow-delimiters'
-        vim.g.rainbow_delimiters = {
-        strategy = {
-            [''] = rainbow_delimiters.strategy['global'],
+    vim.g.rainbow_delimiters = {
+      strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
         --     bash = rainbow_delimiters.strategy['local'],
         --     cpp = rainbow_delimiters.strategy['local'],
         --     c = rainbow_delimiters.strategy['local'],
@@ -17,9 +17,9 @@ return {
         --     json = rainbow_delimiters.strategy['local'],
         --     markdown = rainbow_delimiters.strategy['local'],
         --     python = rainbow_delimiters.strategy['local'],
-        },
-        query = {
-            [''] = 'rainbow-delimiters',
+      },
+      query = {
+        [''] = 'rainbow-delimiters',
         --     bash = 'rainbow-blocks',
         --     cpp = 'rainbow-blocks',
         --     c = 'rainbow-blocks',
@@ -30,16 +30,16 @@ return {
         --     json = 'rainbow-blocks',
         --     markdown = 'rainbow-blocks',
         --     python = 'rainbow-blocks',
-        },
-        highlight = {
-            'RainbowDelimiterRed',
-            'RainbowDelimiterYellow',
-            'RainbowDelimiterBlue',
-            'RainbowDelimiterOrange',
-            'RainbowDelimiterGreen',
-            'RainbowDelimiterViolet',
-            'RainbowDelimiterCyan',
-        },
+      },
+      highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+      },
     }
   end
 }

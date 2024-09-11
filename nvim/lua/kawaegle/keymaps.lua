@@ -6,49 +6,73 @@ vim.g.maplocalleader = " "
 local opts = {noremap = true, silent = true}
 
 -- toggle NERD tree
-keymap("n", "<C-n>", ":NvimTreeToggle<CR>", table.insert(opts, {desc = " Toggle Nvim tree"}))
+opts.desc = "toggle nvimtree"
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- split and vsplit
-keymap("n", "<leader>v", ":vsplit<CR>", table.insert(opts, {desc = "split Verticaly"}))
-keymap("n", "<leader>s", ":split<CR>", table.insert(opts, {desc = "Split horizontaly"}))
+opts.desc = "split verticaly"
+keymap("n", "<leader>v", ":vsplit<CR>", opts)
+opts.desc = "split horizontaly"
+keymap("n", "<leader>s", ":split<CR>", opts)
 
 -- move auround window
-keymap("n", "<C-h>", "<C-w>h", table.insert(opts, {desc = "move window left"}))
-keymap("n", "<C-j>", "<C-w>j", table.insert(opts, {desc = "move window down"}))
-keymap("n", "<C-k>", "<C-w>k", table.insert(opts, {desc = "move window up"}))
-keymap("n", "<C-l>", "<C-w>l", table.insert(opts, {desc = "move window right"}))
+opts.desc = "move to left"
+keymap("n", "<C-h>", "<C-w>h", opts)
+opts.desc = "move to up"
+keymap("n", "<C-j>", "<C-w>j", opts)
+opts.desc = "move to down"
+keymap("n", "<C-k>", "<C-w>k", opts)
+opts.desc = "move to right"
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- resize window
-keymap("n", "<C-Up>", ":resize +2<CR>", table.insert(opts, {desc = "resize window up"}))
-keymap("n", "<C-Down>", ":resize -2<CR>", table.insert(opts, {desc = "resize window down"}))
-keymap("n", "<C-Left>", ":vertical resize +2<CR>", table.insert(opts, {desc = "resize window left"}))
-keymap("n", "<C-Right>", ":vertical resize -2<CR>", table.insert(opts, {desc = "resize window right"}))
+opts.desc = "resize horizontal +2 px"
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+opts.desc = "resize horizontal -2 px"
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+opts.desc = "resize vertical +2 px"
+keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+opts.desc = "resize vertical -2 px"
+keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- switch or tab
-keymap("n", "<S-Tab>", ":tabprevious<CR>", table.insert(opts, {desc = "Roll tab into previous tab"}))
-keymap("n", "<Tab>", ":tabnext<CR>", table.insert(opts, {desc = "roll tab into next tab"}))
-keymap("n", "<C-t>", ":tabnew<CR>", table.insert(opts, {desc = "create new tab"}))
+opts.desc = "go to previous tab"
+keymap("n", "<S-Tab>", ":tabprevious<CR>", opts)
+opts.desc = "go to next tab"
+keymap("n", "<Tab>", ":tabnext<CR>", opts)
+opts.desc = "create new tab"
+keymap("n", "<C-t>", ":tabnew<CR>", opts)
 
 -- make and open quickfix
-keymap("n", "<leader>m", ":make<CR><CR>:copen<CR>", table.insert(opts, {desc = "Start :make and open directly quickfix list"}))
+opts.desc = "do :make and open the quickfix list"
+keymap("n", "<leader>m", ":make<CR><CR>Telescope quickfix<CR>", opts)
 
 -- no search hightlight
-keymap("n", "<leader><leader>", ":noh<CR>:let @/ = ''<CR>", table.insert(opts, {desc = "disable search hightlight"}))
+opts.desc = "remove the hightlight of search"
+keymap("n", "<leader><leader>", ":noh<CR>:let @/ = ''<CR>", opts)
 
 -- save and quit
-keymap("n", "<leader>ww", ":w!<CR>", table.insert(opts, {desc = "force save file"}))
-keymap("n", "<leader>qq", ":q!<CR>", table.insert(opts, {desc = "force quit file"}))
-keymap("n", "<leader>wq", ":wq<CR>", table.insert(opts, {desc = "save and close buffer"}))
+opts.desc = "force save"
+keymap("n", "<leader>ww", ":w!<CR>", opts)
+opts.desc = "force quit"
+keymap("n", "<leader>qq", ":q!<CR>", opts)
+opts.desc = "save using tee for sudo file"
+keymap("n", "<leader>sw", ":w !sudo tee %<CR>", opts)
+opts.desc = "save and quit"
+keymap("n", "<leader>wq", ":wq<CR>", opts)
 
 -- indent selected text
-keymap("v", "<", "<gv", table.insert(opts, {desc = "indent selected lines left"}))
-keymap("v", ">", ">gv", table.insert(opts, {desc = "indent selected lines right"}))
+opts.desc = "indent to left"
+keymap("v", "<", "<gv", opts)
+opts.desc = "indent to right"
+keymap("v", ">", ">gv", opts)
 
 -- move selected text up down
-keymap("v", "<A-j>", ":m '>+1<CR>gv-gv", table.insert(opts, {desc = "move up selected lines"}))
-keymap("n", "<A-j>", ":m '>+1<CR>gv-gv", table.insert(opts, {desc = "move up selected lines"}))
-keymap("v", "<A-k>", ":m '<-2<CR>gv-gv", table.insert(opts, {desc = "move down selected lines"}))
-keymap("n", "<A-k>", ":m '<-2<CR>gv-gv", table.insert(opts, {desc = "move down selected lines"}))
+opts.desc = "move visual selection up"
+keymap({"n","v"}, "<A-j>", ":m '>+1<CR>gv-gv", opts)
+opts.desc = "move visual selection down"
+keymap({"n", "v"}, "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Git conflict in telescope
-keymap("n", "<leader>cT", ":GitConflictListQf<cr>:q<cr>:Telescope quickfix<cr>", table.insert(opts, {desc = "Show all git conflict on telescope"}))
+opts.desc = "create a quickfix of git conflict and open it using Telescope"
+keymap("n", "<leader>cT", ":GitConflictListQf<cr>:q<cr>:Telescope quickfix<cr>", opts)
