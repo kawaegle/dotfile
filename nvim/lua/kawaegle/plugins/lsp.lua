@@ -1,13 +1,7 @@
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    lazy = true,
-    config = false,
-    init = function()
-      vim.g.lsp_zero_extend_cmp = 0
-      vim.g.lsp_zero_extend_lspconfig = 0
-    end,
+    branch = 'v4.x'
   },
 
   {
@@ -25,11 +19,9 @@ return {
     },
     config = function()
       local lsp_zero = require('lsp-zero')
-      lsp_zero.extend_lspconfig()
 
-
-      lsp_zero.on_attach(function(client, bufnr)
-        local opts = {buffer = buffnr, remap = false}
+      local lsp_attach = function(client, bufnr)
+        local opts = {buffer = bufnr, remap = false}
 
         opts.desc = "Show LSP references"
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
@@ -66,7 +58,14 @@ return {
 
         opts.desc = "open on floating diagnostic"
         vim.keymap.set("n", "<C-M-space>", function() vim.diagnostic.open_float() end, opts)
-      end)
+      end
+
+      lsp_zero.extend_lspconfig({
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        lsp_attach = lsp_attach,
+        float_border = 'rounded',
+        sign_text = true,
+      })
 
       require("mason").setup({
         ui = {
@@ -79,6 +78,7 @@ return {
         }
       })
 
+
       require('mason-lspconfig').setup({
         automatic_installation = true,
         ensure_installed = {
@@ -90,9 +90,31 @@ return {
           "docker_compose_language_service",
         },
         handlers = {
-          lsp_zero.default_setup
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+          ["volar"] = function() end,
+          ["ts_ls"] = function() end,
         },
       })
+
+      local lspconf = require("lspconfig")
+      local vue_language_server_path = require("mason-registry").get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
+
+lspconf.ts_ls.setup({
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+      },
+    },
+  },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+})
+lspconf.volar.setup({})
+
     end
   }
 }

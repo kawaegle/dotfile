@@ -1,7 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
     "L3MON4D3/LuaSnip", -- snippet engine
@@ -10,33 +9,24 @@ return {
     "onsails/lspkind.nvim", -- vs-code like pictograms
     "hrsh7th/cmp-nvim-lsp",
   },
+
   config = function()
-    local lsp = require("lsp-zero")
+
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+    local lsp = require("lsp-zero")
+
     require("luasnip.loaders.from_vscode").lazy_load()
-    lsp.extend_cmp()
-
-    local has_words_before = function()
-      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
-
-    local cmp_select = {behavior = cmp.SelectBehavior.Select}
-    local cmp_mappings = lsp.defaults.cmp_mappings({
+    cmp_mapping = {
       ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
       ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
       ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-      ["<C-y>"] = cmp.config.disable,
+
       ["<CR>"] = cmp.mapping.confirm { select = true },
-      ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      },
-      ["<Tab>"] = cmp.mapping(function(fallback)
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_next_item()
+          cmp.select_prev_item()
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif has_words_before() then
@@ -44,98 +34,51 @@ return {
         else
           fallback()
         end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
+      end,{"i", "s"}),
+      ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_prev_item()
+          cmp.select_next_item()
         elseif luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
           fallback()
         end
-      end, { "i", "s" }),
-    })
+      end,{"i", "s"}),
+    }
 
     cmp.setup({
-      formatting = {
-        fields = {"abbr", "kind", "menu"},
-        format = function(entry, item)
-          item.kind = lspkind.presets.default[item.kind]
-          item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-          })[entry.source.name]
-          return item
-        end
-      },
-      mapping = cmp_mappings,
       sources = {
         {name = 'nvim_lsp'},
         {name = 'luasnip'},
+        {name = 'path'},
         {name = 'buffer',
           option = {
-            get_bufnrs = function()
-              local bufs = {}
-              for _, win in ipairs(vim.api.nvim_list_wins()) do
-                bufs[vim.api.nvim_win_get_buf(win)] = true
-              end
-              return vim.tbl_keys(bufs)
-            end
+            get_bufnrs = function() return { vim.api.nvim_get_current_buf() } end
           }
         },
-        {name = 'path'},
       },
-      confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-      },
-      experimental = {
-        ghost_text = true,
-        native_menu = false,
-      },
-    })
 
-    -- cmp.setup({
-    --   completion = {
-    --     completeopt = "menu,menuone,preview,noselect",
-    --   },
-    --   snippet = { -- configure how nvim-cmp interacts with snippet engine
-    --     expand = function(args)
-    --       luasnip.lsp_expand(args.body)
-    --     end,
-    --   },
-    --   confirm_opts = {
-    --      behavior = cmp.ConfirmBehavior.Replace,
-    --      select = false,
-    --   },
-    --   experimental = {
-    --     ghost_text = true,
-    --     native_menu = false,
-    --   },
-    --   mapping = cmp_mappings,
-    --   -- sources for autocompletion
-    --   sources = cmp.config.sources({
-    --     { name = "nvim_lsp" },
-    --     { name = "luasnip" }, -- snippets
-    --     { name = "path" }, -- file system paths
-    --     { name = "buffer" }, -- text within current buffer
-    --   }),
-    --   -- configure lspkind for vs-code like pictograms in completion menu
-    --   formatting = {
-    --     fields = {"abbr", "kind", "menu"},
-    --     format = function(entry, item)
-    --         item.kind = lspkind.presets.default[item.kind]
-    --         item.menu = ({
-    --             nvim_lsp = "[LSP]",
-    --             luasnip = "[LuaSnip]",
-    --             buffer = "[Buffer]",
-    --             path = "[Path]",
-    --         })[entry.source.name]
-    --         return item
-    --     end
-    --     },
-    -- })
+      snippet = {
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end,
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      view = {native_menu = false},
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = 'text_symbol',
+          maxwidth = 50,
+          ellipsis_char = '...',
+          show_labelDetails = true,
+        })},
+     experimental = {
+        ghost_text = true,
+      },
+      mapping = cmp_mapping
+    })
   end
 }

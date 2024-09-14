@@ -14,7 +14,6 @@ return {
       -- setup autotag
       autotag.setup({
         opts = {
-          -- Defaults
           enable_close = true, -- Auto close tags
           enable_rename = true, -- Auto rename pairs of tags
           enable_close_on_slash = false -- Auto close on trailing </
@@ -33,9 +32,6 @@ return {
           end,
         },
         indent = { enable = true },
-        autotag = {
-          enable = true,
-        },
         auto_install = false,
         sync_install = false,
         ensure_installed = {
