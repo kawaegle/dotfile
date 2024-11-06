@@ -12,11 +12,10 @@ keymap:
       SUPER-SHIFT-k: KEY_VOLUMEUP
       SUPER-SHIFT-l: KEY_NEXTSONG
 
-
   - name: CTRL MAJ on firefox
     application:
       only:
-        - firefox
+        - zen-alpha
         - discord
     remap:
       CTRL-SHIFT-c: KEY_COPY
