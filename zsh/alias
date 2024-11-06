@@ -13,7 +13,7 @@ alias gb="git branch"
 alias gba="git branch --all"
 alias gbd="git branch -d"
 alias gblame="git blame"
-alias gc="git clone --depth 1 --recursive"
+alias gc="git clone --recursive --filter=blob:none"
 alias gck="git checkout"
 alias gcm="git commit -m"
 alias gcm_init="git commit -m ':tada: init commit'"
@@ -91,6 +91,7 @@ alias nmap_traceroute="sudo nmap -sP -PE -PS22,25,80 -PA21,23,80,3389 -PU -PO --
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
 # random aliases
+alias systemdClear="sudo journalctl --vacuum-time=1second && sudo journalctl --rotate && sudo rm -rfv /var/lib/systemd/coredump/core*.zst"
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage""
 alias clear="reset"
 alias cpv="rsync -pogbr -hhh -e /dev/null --progress "$@""
