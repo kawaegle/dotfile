@@ -5,10 +5,12 @@
 [core]
 	editor = nvim
 	pager = less -F -X
+	untrackedCache = true
+	fsmonitor = true
 [init]
 	defaultBranch = master
 [pull]
-	rebase = false
+	rebase = true
 [commit]
 	gpgsign = true
 [advice]
@@ -24,6 +26,7 @@
 	remote = green
 [fetch]
 	prune = true
+	writeCommitGraph = true
 [diff]
 	wsErrorHighlight = all
 
