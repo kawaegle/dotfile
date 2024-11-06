@@ -86,7 +86,7 @@ return {
           "dockerls",
           "gopls",
           "jsonls",
-          "pyright",
+          "basedpyright",
           "docker_compose_language_service",
         },
         handlers = {
@@ -97,24 +97,6 @@ return {
           ["ts_ls"] = function() end,
         },
       })
-
-      local lspconf = require("lspconfig")
-      local vue_language_server_path = require("mason-registry").get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
-
-lspconf.ts_ls.setup({
-  init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = vue_language_server_path,
-        languages = { "vue" },
-      },
-    },
-  },
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-})
-lspconf.volar.setup({})
-
     end
   }
 }

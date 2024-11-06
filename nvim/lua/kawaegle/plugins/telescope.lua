@@ -5,7 +5,6 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-telescope/telescope-ui-select.nvim",
-    "rcarriga/nvim-notify",
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
@@ -15,6 +14,11 @@ return {
     local builtin = require("telescope.builtin")
 
     telescope.setup({
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {}
+        },
+      },
       defaults = {
         path_display = { "truncate " },
         mappings = {
@@ -26,8 +30,10 @@ return {
         },
       },
     })
+
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
+
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>bf", builtin.buffers, { desc = "List all buffer open in nvim instance"})
     vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Fuzzy find files in git in cwd" })

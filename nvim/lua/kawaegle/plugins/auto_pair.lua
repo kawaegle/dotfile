@@ -10,10 +10,13 @@ return {
       check_ts = true, -- enable treesitter
       ts_config = {
         lua = { "string" }, -- don't add pairs in lua string treesitter nodes
+        c = { "string" },
+        cpp = { "string" },
         javascript = { "template_string" }, -- don't add pairs in javscript template_string treesitter nodes
       },
     })
 
+    enable_check_bracket_line = false
     -- import nvim-autopairs completion functionality
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 

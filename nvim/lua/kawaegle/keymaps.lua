@@ -76,3 +76,4 @@ keymap({"n", "v"}, "<A-k>", ":m '<-2<CR>gv-gv", opts)
 -- Git conflict in telescope
 opts.desc = "create a quickfix of git conflict and open it using Telescope"
 keymap("n", "<leader>cT", ":GitConflictListQf<cr>:q<cr>:Telescope quickfix<cr>", opts)
+
