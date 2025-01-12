@@ -1,12 +1,13 @@
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
+    event = {"BufReadPre", "BufNewFile"},
     branch = 'v4.x'
   },
 
   {
     'williamboman/mason.nvim',
-    lazy = false,
+    cmd = {"Mason"},
     config = true,
   },
 
@@ -92,9 +93,7 @@ return {
         handlers = {
           function(server_name)
             require('lspconfig')[server_name].setup({})
-          end,
-          ["volar"] = function() end,
-          ["ts_ls"] = function() end,
+          end
         },
       })
     end
