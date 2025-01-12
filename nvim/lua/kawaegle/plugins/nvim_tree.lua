@@ -1,17 +1,13 @@
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  cmd = {"NvimTreeToggle", "NvimTreeOpen"},
   config = function()
-    local nvimtree = require("nvim-tree")
-
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
     -- change color for arrows in tree to light blue
     vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
 
-    nvimtree.setup({
+    require("nvim-tree").setup({
       view = {
         width = 25,
         relativenumber = false,
@@ -43,12 +39,10 @@ return {
       },
       git = {
         ignore = true,
-      },
-    })
+      }})
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
-
     keymap.set("n", "<c-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-  end,
+  end
 }
