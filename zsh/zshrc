@@ -4,7 +4,7 @@
 set -a; source $ZSH_DOT/env; set +a
 set -a; source $ZSH_DOT/de_env; set +a
 
-autoload -Uz compinit
+autoload -U compinit
 autoload -U promptinit
 autoload -U colors
 colors
