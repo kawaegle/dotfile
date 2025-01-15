@@ -1,6 +1,7 @@
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  cmd = {"TodoTelescope", "TodoQuickFix"},
   config = function()
     require("todo-comments").setup({
       signs = true,
