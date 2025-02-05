@@ -53,8 +53,8 @@ else
 fi
 if (( $+commands[eza] )); then
     alias l="eza --icons=always"
-    alias la="eza -la --icons=always"
-    alias ll="eza -l --icons=always"
+    alias la="eza -laF --icons=always"
+    alias ll="eza -lF --icons=always"
     alias ls="eza --icons=always"
     alias tree="eza --icons=always --tree"
 else
