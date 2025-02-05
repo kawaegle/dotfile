@@ -6,13 +6,15 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = true,
-        disabled_filetype = {"NvimTree"},
+        disabled_filetypes = {
+          statusline = {'NvimTree'}
+        },
         section_separators = { left = '', right = '' },
         component_separators = "|",
         theme = "tokyonight",
       },
       sections = {
-        lualine_a = {'mode'},
+        lualine_a = {'mode', 'branch'},
         lualine_b = {'filename'},
         lualine_c = {},
 
