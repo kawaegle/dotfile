@@ -18,7 +18,7 @@ Here are some keybindings that are used in this config :
 
 ### Plugins list
 - autopair to automaticly close `'"({[`
-- cmp completions framework 
+- blink.cmp completions framework 
 - colorhex to see color based on hexa, base64, html code, and more
 - git_conflict solver
 - git sign to see if line were modified
