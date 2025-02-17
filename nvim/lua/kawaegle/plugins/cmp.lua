@@ -1,90 +1,73 @@
 return {
+  'saghen/blink.cmp',
   event = "InsertEnter",
-  "hrsh7th/nvim-cmp",
   dependencies = {
-    "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
+    'rafamadriz/friendly-snippets',
     "L3MON4D3/LuaSnip", -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
-    "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
-    "hrsh7th/cmp-nvim-lsp",
   },
 
-  config = function()
+  version = '*',
 
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    local lspkind = require("lspkind")
-    local lsp = require("lsp-zero")
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    -- 'default' for mappings similar to built-in completion
+    -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+    -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+    -- See the full "keymap" documentation for information on defining your own keymap.
+    keymap = { preset = 'default',
+      ["<C-k>"] = {'scroll_documentation_up', 'fallback'},
+      ["<C-j>"] = {'scroll_documentation_down', 'fallback'},
+      ["<CR>"] = {'select_and_accept', 'fallback'},
+      ["<Tab>"] = {'select_next', 'snippet_forward', 'fallback'},
+      ["<S-Tab>"] = {'select_prev', 'snippet_backward', 'fallback'},
+    },
 
-    local has_words_before = function()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
+    appearance = {
+      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+      -- Useful for when your theme doesn't support blink.cmp
+      -- Will be removed in a future release
+      use_nvim_cmp_as_default = true,
+      -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+      -- Adjusts spacing to ensure icons are aligned
+      nerd_font_variant = 'mono'
+    },
 
-    require("luasnip.loaders.from_vscode").lazy_load()
-    cmp_mapping = {
-      ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-      ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-      ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-
-      ["<CR>"] = cmp.mapping.confirm { select = true },
-      ['<S-Tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-     end,{"i", "s"}),
-      ['<Tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end,{"i", "s"}),
-    }
-
-    cmp.setup({
-      sources = {
-        {name = 'nvim_lsp'},
-        {name = 'luasnip'},
-        {name = 'path'},
-        {name = 'buffer',
-          option = {
-            get_bufnrs = function() return { vim.api.nvim_get_current_buf() } end
-          }
+    completion = {
+      accept = {
+        -- experimental auto-brackets support
+        auto_brackets = {
+          enabled = true,
         },
       },
+      menu = {
+        draw = {
+          treesitter = { "lsp" },
+        },
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500,
+      },
+      ghost_text = {
+        enabled = true,
+        -- Show the ghost text when an item has been selected
+        show_with_selection = true,
+        -- Show the ghost text when no item has been selected, defaulting to the first item
+        show_without_selection = false,
+      },
+    },
 
-      snippet = {
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body)
-        end,
-      },
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
-      view = {native_menu = false},
-      formatting = {
-        format = lspkind.cmp_format({
-          mode = 'text_symbol',
-          maxwidth = 50,
-          ellipsis_char = '...',
-          show_labelDetails = true,
-        })},
-     experimental = {
-        ghost_text = true,
-      },
-      mapping = cmp_mapping
-    })
-  end
+
+    -- documentation = { auto_show = true, auto_show_delay_ms = 500 },
+    -- Default list of enabled providers defined so that you can extend it
+    -- elsewhere in your config, without redefining it, due to `opts_extend`
+    snippets = { preset = 'luasnip' },
+    -- ensure you have the `snippets` source (enabled by default)
+    sources = {
+      default = { 'lsp', 'snippets', 'path', 'buffer' },
+    },
+    signature = { enabled = true }
+  },
+  opts_extend = { "sources.default" },
 }

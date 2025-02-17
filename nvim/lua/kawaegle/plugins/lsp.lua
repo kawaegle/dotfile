@@ -17,6 +17,7 @@ return {
     cmd = {'LspInfo', 'LspInstall', 'LspStart', 'LspStop'},
     dependencies = {
       {'williamboman/mason-lspconfig.nvim'},
+      {"saghen/blink.cmp"}
     },
     config = function()
       local lsp_zero = require('lsp-zero')
@@ -62,7 +63,7 @@ return {
       end
 
       lsp_zero.extend_lspconfig({
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
         lsp_attach = lsp_attach,
         float_border = 'rounded',
         sign_text = true,
