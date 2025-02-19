@@ -1,12 +1,11 @@
 return {
   'saghen/blink.cmp',
   event = "InsertEnter",
+  version = '*',
   dependencies = {
     'rafamadriz/friendly-snippets',
-    "L3MON4D3/LuaSnip", -- snippet engine
   },
 
-  version = '*',
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -41,33 +40,39 @@ return {
         },
       },
       menu = {
+        auto_show = function(ctx) return ctx.mode ~= "cmdline" end, --or not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+        border = 'single',
         draw = {
           treesitter = { "lsp" },
         },
       },
       documentation = {
+        window = { border = 'single' },
         auto_show = true,
-        auto_show_delay_ms = 500,
+        auto_show_delay_ms = 200,
       },
       ghost_text = {
         enabled = true,
-        -- Show the ghost text when an item has been selected
         show_with_selection = true,
-        -- Show the ghost text when no item has been selected, defaulting to the first item
         show_without_selection = false,
       },
     },
 
-
-    -- documentation = { auto_show = true, auto_show_delay_ms = 500 },
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
-    snippets = { preset = 'luasnip' },
-    -- ensure you have the `snippets` source (enabled by default)
     sources = {
-      default = { 'lsp', 'snippets', 'path', 'buffer' },
+      default = {
+        'lsp',
+        'snippets',
+        'path',
+        'buffer'
+      },
     },
-    signature = { enabled = true }
+
+    signature = {
+      enabled = true,
+      window = {
+        border = 'single'
+      },
+    },
   },
   opts_extend = { "sources.default" },
 }
