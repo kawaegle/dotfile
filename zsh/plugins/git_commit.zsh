@@ -7,7 +7,7 @@ commit_msg() {
     else
         c=$1
     fi
-    git commit -m "${c}" -m '(੭｡╹▿╹｡)੭--K4W4--★'
+    git commit -m "${c}" -m '(੭｡╹▿╹｡)੭c[_]--K4W4--★'
 }
 
 alias gcm=commit_msg
