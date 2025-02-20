@@ -15,7 +15,6 @@ alias gbd="git branch -d"
 alias gblame="git blame"
 alias gc="git clone --recursive --filter=blob:none"
 alias gck="git checkout"
-alias gcm="git commit -m"
 alias gcm_init="git commit -m ':tada: init commit'"
 alias gdiff="git diff"
 alias gf="git fetch"
@@ -119,4 +118,4 @@ alias vdot="nvim $DOT/"
 alias vnvim="nvim $DOT/nvim"
 
 #RZ-book
-alias rz-book="podman run --name rz-book --rm -d -p 3000:80 rz-book:latest && firefox localhost:3000"
+alias rz-book="podman run --name rz-book --rm -d -p 3000:8080 rz-book:latest && xdg-open http://localhost:3000"
