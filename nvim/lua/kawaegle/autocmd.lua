@@ -6,11 +6,6 @@ autocmd('Filetype', {
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
-autocmd('Filetype', {
-  pattern = { 'go', 'c', 'cpp' },
-  command = 'setlocal autoindent noexpandtab tabstop=4 shiftwidth=4'
-})
-
 autocmd({"BufWrite"}, {
   pattern = "*",
   callback = function ()
