@@ -85,11 +85,11 @@ return {
         automatic_installation = true,
         ensure_installed = {
           "clangd",
-          "dockerls",
           "gopls",
-          "jsonls",
           "basedpyright",
-          "docker_compose_language_service",
+          -- "dockerls",
+          -- "jsonls",
+          -- "docker_compose_language_service",
         },
         handlers = {
           function(server_name)
