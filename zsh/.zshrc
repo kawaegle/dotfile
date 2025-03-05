@@ -1,5 +1,5 @@
 # Manage Env
-: ${DOT:="$HOME/.local/share/dotfile"}
+: ${DOT:="$HOME/.local/share/"}
 : ${ZSH_DOT="$DOT/zsh"}
 set -a; source $ZSH_DOT/env; set +a
 set -a; source $ZSH_DOT/de_env; set +a

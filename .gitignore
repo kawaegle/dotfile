@@ -15,6 +15,6 @@ nvim/lazy-lock.json
 systemd/user/default.target.wants
 systemd/user/sockets.target.wants
 tags
-tmux/plugins
-zsh/hist
+tmux/.tmux/plugins/
+zsh/.local/share/zsh/hist
 Thunar/accels.scm
