@@ -18,3 +18,4 @@ tags
 tmux/.tmux/plugins/
 zsh/.local/share/zsh/hist
 Thunar/accels.scm
+./nvim/.config/nvim/lazy-lock.json
