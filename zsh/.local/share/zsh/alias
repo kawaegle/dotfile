@@ -34,6 +34,7 @@ alias gstat="git status"
 alias gsub="git submodule"
 alias gswitch="git switch"
 alias greset="git reset"
+alias gremote="git remote"
 
 # upgrade of standard commands
 alias cp="cp -v"
@@ -118,4 +119,4 @@ alias vdot="nvim $DOT/"
 alias vnvim="nvim $DOT/nvim"
 
 #RZ-book
-alias rz-book="podman run --name rz-book --rm -d -p 3000:8080 rz-book:latest && xdg-open http://localhost:3000"
+alias rz-book="podman run --name rz-book --rm -d -p 3000:8080 alecromski/rz-book:latest && xdg-open http://localhost:3000"

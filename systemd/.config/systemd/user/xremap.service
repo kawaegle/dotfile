@@ -5,7 +5,7 @@ Description=xremap
 Type=simple
 Restart=no
 TimeoutStopSec=1s
-ExecStart=xremap /home/kawaegle/.config/xremap.yml
+ExecStart=xremap /home/kawaegle/.config/xremap.yaml
 
 [Install]
 WantedBy=default.target

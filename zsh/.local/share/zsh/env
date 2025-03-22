@@ -4,14 +4,16 @@ PAGER="less"
 GROFF_NO_SGR=1
 LESSHISTFILE="/dev/null"
 EDITOR="nvim"
-DOT="$HOME/.local/share"
-ZSH_DOT="$DOT/zsh"
+DOT="$HOME/.dotfile"
+ZSH_DOT="$DOT/zsh/.local/share/zsh"
 GOPATH="$HOME/.cache/go"
 
 ANDROID_HOME="$HOME/.local/Android"
-ANDROID_PATH="$ANDROID_HOME/cmdline-tools/latest/bin:\
-$ANDROID_HOME/emulator:\
-$ANDROID_HOME/platform-tools"
+ANDROID_SDK_ROOT="$ANDROID_HOME/sdk_latest/sdk"
+ANDROID_AVD_HOME="$ANDROID_HOME/sdk_latest/avd"
+ANDROID_PATH="$ANDROID_HOME/cmdline-tools/bin:\
+$ANDROID_HOME/sdk_latest/emulator:\
+$ANDROID_HOME/sdk_latest/platform-tools"
 
 PATH="$PATH:\
 $HOME/.local/bin:\
