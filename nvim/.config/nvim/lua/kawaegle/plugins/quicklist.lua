@@ -6,7 +6,7 @@ return {
       qf.setup({
         l = {
           auto_close = true,
-          auto_follow = 'prev',
+          auto_follow = "prev",
           auto_follow_limit = 8,
           follow_slow = true,
           auto_open = true,
@@ -22,7 +22,7 @@ return {
 
         c = {
           auto_close = true,
-          auto_follow = 'prev',
+          auto_follow = "prev",
           auto_follow_limit = 8,
           follow_slow = true,
           auto_open = true,
@@ -39,6 +39,6 @@ return {
         pretty = true,
         silent = false,
       })
-    end
-  }
+    end,
+  },
 }

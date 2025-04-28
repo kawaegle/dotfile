@@ -1,29 +1,23 @@
 return {
   {
-    'VonHeikemen/lsp-zero.nvim',
-    event = {"BufReadPre", "BufNewFile"},
-    branch = 'v4.x'
+    "VonHeikemen/lsp-zero.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    branch = "v4.x",
   },
 
   {
-    'williamboman/mason.nvim',
-    cmd = {"Mason"},
-    config = true,
-  },
-
-  {
-    'neovim/nvim-lspconfig',
-    event = {'BufReadPre', 'BufNewFile'},
-    cmd = {'LspInfo', 'LspInstall', 'LspStart', 'LspStop'},
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    cmd = { "LspInfo", "LspInstall", "LspStart", "LspStop" },
     dependencies = {
-      {'williamboman/mason-lspconfig.nvim'},
-      {"saghen/blink.cmp"}
+      { "williamboman/mason-lspconfig.nvim" },
+      { "saghen/blink.cmp" },
     },
     config = function()
-      local lsp_zero = require('lsp-zero')
+      local lsp_zero = require("lsp-zero")
 
       local lsp_attach = function(client, bufnr)
-        local opts = {buffer = bufnr, remap = false}
+        local opts = { buffer = bufnr, remap = false }
 
         opts.desc = "Show LSP references"
         vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
@@ -59,44 +53,33 @@ return {
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
         opts.desc = "open on floating diagnostic"
-        vim.keymap.set("n", "<C-M-space>", function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set("n", "<C-M-space>", function()
+          vim.diagnostic.open_float()
+        end, opts)
       end
 
       lsp_zero.extend_lspconfig({
-        capabilities = require('blink.cmp').get_lsp_capabilities(),
+        capabilities = require("blink.cmp").get_lsp_capabilities(),
         lsp_attach = lsp_attach,
-        float_border = 'rounded',
-        sign_text = true,
+        float_border = "rounded",
       })
 
-      require("mason").setup({
-        ui = {
-          border = "rounded",
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        }
-      })
-
-
-      require('mason-lspconfig').setup({
+      require("mason-lspconfig").setup({
         automatic_installation = true,
         ensure_installed = {
           "clangd",
           "gopls",
           "basedpyright",
-          -- "dockerls",
-          -- "jsonls",
-          -- "docker_compose_language_service",
+          "dockerls",
+          "jsonls",
+          "docker_compose_language_service",
         },
         handlers = {
           function(server_name)
-            require('lspconfig')[server_name].setup({})
-          end
+            require("lspconfig")[server_name].setup({})
+          end,
         },
       })
-    end
-  }
+    end,
+  },
 }

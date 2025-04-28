@@ -34,15 +34,15 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8,
   listchars = "eol:↓,trail:●,space:·,tab: ",
-  ff = 'unix',
+  ff = "unix",
   fileformats = "unix",
   list = true,
   termguicolors = true,
-  encoding = 'utf-8',
+  encoding = "utf-8",
   -- foldmethod = 'indent',
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 for i, j in pairs(options) do
   vim.opt[i] = j
@@ -54,25 +54,26 @@ vim.diagnostic.config({
   underline = true,
   severity_sort = true,
   float = {
-    border = 'rounded',
-    source = 'always',
+    border = "rounded",
+    source = "always",
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "󰠠",
+      [vim.diagnostic.severity.HINT] = "",
+    },
   },
 })
-
-local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " "}
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
-vim.g.python3_host_prog = '/bin/python3'
+vim.g.python3_host_prog = "/bin/python3"
 vim.g.editorconfig = true
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])

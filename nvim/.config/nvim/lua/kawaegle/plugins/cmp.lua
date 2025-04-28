@@ -1,11 +1,9 @@
 return {
-  'saghen/blink.cmp',
+  "saghen/blink.cmp",
   event = "InsertEnter",
-  version = '*',
   dependencies = {
-    'rafamadriz/friendly-snippets',
+    "rafamadriz/friendly-snippets",
   },
-
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -14,12 +12,13 @@ return {
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- See the full "keymap" documentation for information on defining your own keymap.
-    keymap = { preset = 'default',
-      ["<C-k>"] = {'scroll_documentation_up', 'fallback'},
-      ["<C-j>"] = {'scroll_documentation_down', 'fallback'},
-      ["<CR>"] = {'select_and_accept', 'fallback'},
-      ["<Tab>"] = {'select_next', 'snippet_forward', 'fallback'},
-      ["<S-Tab>"] = {'select_prev', 'snippet_backward', 'fallback'},
+    keymap = {
+      preset = "default",
+      ["<C-k>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-j>"] = { "scroll_documentation_down", "fallback" },
+      ["<CR>"] = { "select_and_accept", "fallback" },
+      ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
     },
 
     appearance = {
@@ -29,11 +28,11 @@ return {
       use_nvim_cmp_as_default = true,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spawant to set signatucing to ensure icons are aligned
-      nerd_font_variant = 'mono'
+      nerd_font_variant = "mono",
     },
 
     completion = {
-      keyword = { range = 'full' },
+      keyword = { range = "full" },
       accept = {
         -- experimental auto-brackets support
         auto_brackets = {
@@ -45,13 +44,13 @@ return {
         --   return ctx.mode ~= "cmdline" or vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
         -- end,
 
-        border = 'single',
+        border = "single",
         draw = {
           treesitter = { "lsp" },
         },
       },
       documentation = {
-        window = { border = 'single' },
+        window = { border = "single" },
         auto_show = true,
         auto_show_delay_ms = 200,
       },
@@ -64,19 +63,20 @@ return {
 
     sources = {
       default = {
-        'snippets',
-        'lsp',
-        'path',
-        'buffer'
+        "lsp",
+        "snippets",
+        "path",
+        "buffer",
       },
     },
 
     signature = {
       enabled = true,
       window = {
-        border = 'single'
+        border = "single",
       },
     },
+    fuzzy = { implementation = "lua" },
   },
   opts_extend = { "sources.default" },
 }

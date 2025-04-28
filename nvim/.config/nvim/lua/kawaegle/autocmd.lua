@@ -1,19 +1,19 @@
 local fn = vim.fn
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd('Filetype', {
-  pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescriptreact', 'json', 'lua' },
-  command = 'setlocal shiftwidth=2 tabstop=2'
+autocmd("Filetype", {
+  pattern = { "text", "markdown", "html", "xhtml", "javascript", "typescriptreact", "json", "lua" },
+  command = "setlocal shiftwidth=2 tabstop=2",
 })
 
-autocmd({"BufWrite"}, {
+autocmd({ "BufWrite" }, {
   pattern = "*",
-  callback = function ()
+  callback = function()
     if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" then
       return
     end
     local pos = vim.api.nvim_win_get_cursor(0)
-    vim.cmd [[ :%s/\s\+$//e ]]
+    vim.cmd([[ :%s/\s\+$//e ]])
     vim.api.nvim_win_set_cursor(0, pos)
   end,
 })

@@ -26,10 +26,10 @@ return {
         on_highlights = function(highlights, colors) end,
       })
       vim.cmd("colorscheme tokyonight")
-    end
+    end,
   },
   {
-    'stevearc/dressing.nvim',
+    "stevearc/dressing.nvim",
     opts = {},
-  }
+  },
 }

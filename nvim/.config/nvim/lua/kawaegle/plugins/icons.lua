@@ -18,14 +18,14 @@ return {
           icon = "",
           color = "#428850",
           cterm_color = "65",
-          name = "Zsh"
+          name = "Zsh",
         },
       },
       override_by_filename = {
         [".gitignore"] = {
           icon = "",
           color = "#f1502f",
-          name = "Gitignore"
+          name = "Gitignore",
         },
         ["makefile"] = {
           icon = "",
@@ -35,5 +35,5 @@ return {
         },
       },
     })
-  end
+  end,
 }

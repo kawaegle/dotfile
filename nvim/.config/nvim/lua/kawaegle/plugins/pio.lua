@@ -24,11 +24,11 @@ local function check_platformio()
 end
 
 return {
-  'anurag3301/nvim-platformio.lua',
-  rocks = {'luasec'},
+  "anurag3301/nvim-platformio.lua",
+  rocks = { "luasec" },
   dependencies = {
-    {'nvim-telescope/telescope.nvim'},
-    {'nvim-lua/plenary.nvim'},
+    { "nvim-telescope/telescope.nvim" },
+    { "nvim-lua/plenary.nvim" },
   },
-  cond = check_platformio()
+  cond = check_platformio(),
 }

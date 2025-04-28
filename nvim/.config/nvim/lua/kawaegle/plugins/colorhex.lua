@@ -17,7 +17,7 @@ local opts = {
     css_fn = true,
     tailwind = true,
 
-    sass = { enable = false, parsers = { "css" }, },
+    sass = { enable = false, parsers = { "css" } },
     -- mode = "background",
     mode = "virtualtext",
     virtualtext = "  ",

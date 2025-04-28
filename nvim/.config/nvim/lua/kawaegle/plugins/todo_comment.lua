@@ -1,20 +1,20 @@
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  cmd = {"TodoTelescope", "TodoQuickFix"},
-  event = {"BufReadPre", "BufNewFile"},
+  cmd = { "TodoTelescope", "TodoQuickFix" },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("todo-comments").setup({
       signs = true,
       sign_priority = 8,
       keywords = {
-        BUG = {icon = " ", color = "error", alt = {"FIXME", "FIXIT", "ISSUE"}},
-        TODO = {icon = " ", color = "info"},
-        HACK = {icon = " ", color = "warning"},
-        WARN = {icon = " ", color = "warning", alt = {"WARNING", "XXX"}},
-        PERF = {icon = " ", alt = {"OPTIM", "PERFORMANCE", "OPTIMIZE", "OPTI"}},
-        NOTE = {icon = " ", color = "hint", alt = {"INFO"}},
-        TEST = {icon = "⏲ ", color = "test", alt = {"TESTING", "PASSED", "FAILED"}},
+        BUG = { icon = " ", color = "error", alt = { "FIXME", "FIXIT", "ISSUE" } },
+        TODO = { icon = " ", color = "info" },
+        HACK = { icon = " ", color = "warning" },
+        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "OPTI" } },
+        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+        TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       },
       merge_keywords = true,
       highlight = {
@@ -35,7 +35,7 @@ return {
         info = { "DiagnosticInfo", "#2563EB" },
         hint = { "DiagnosticHint", "#10B981" },
         default = { "Identifier", "#7C3AED" },
-        test = { "Identifier", "#FF00FF" }
+        test = { "Identifier", "#FF00FF" },
       },
       search = {
         command = "rg",
@@ -50,5 +50,5 @@ return {
       },
     })
     vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<CR>", { desc = "Fuzzy find ToDo and other comment" })
-  end
+  end,
 }

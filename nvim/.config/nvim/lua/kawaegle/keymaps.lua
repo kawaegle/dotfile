@@ -3,7 +3,7 @@ local keymap = vim.keymap.set
 --Remap space as leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
 -- toggle NERD tree
 opts.desc = "toggle nvimtree"
@@ -69,11 +69,10 @@ keymap("v", ">", ">gv", opts)
 
 -- move selected text up down
 opts.desc = "move visual selection up"
-keymap({"n","v"}, "<A-j>", ":m '>+1<CR>gv-gv", opts)
+keymap({ "n", "v" }, "<A-j>", ":m '>+1<CR>gv-gv", opts)
 opts.desc = "move visual selection down"
-keymap({"n", "v"}, "<A-k>", ":m '<-2<CR>gv-gv", opts)
+keymap({ "n", "v" }, "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 -- Git conflict in telescope
 opts.desc = "create a quickfix of git conflict and open it using Telescope"
 keymap("n", "<leader>cT", ":GitConflictListQf<cr>:q<cr>:copen<cr>", opts)
-
