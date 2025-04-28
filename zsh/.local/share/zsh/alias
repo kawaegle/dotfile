@@ -18,23 +18,27 @@ alias gck="git checkout"
 alias gcm_init="git commit -m ':tada: init commit'"
 alias gdiff="git diff"
 alias gf="git fetch"
+alias gtag="git tag"
 alias gfuckup="git reset --hard"
 alias gi="git init"
 alias glog="git log --graph --show-signature"
-alias ginfo="git log --graph --show-signature --shortstat"
+alias ginfo="git log --all --graph --show-signature --shortstat"
 alias gmerge="git merge"
 alias gp="git push"
 alias gpdb="git push --delete"
 alias gpull="git pull"
 alias gres="git reset"
-alias grestore="git restore"
+alias grest="git restore"
 alias gshort="git shortlog"
 alias gstash="git stash"
 alias gstat="git status"
 alias gsub="git submodule"
 alias gswitch="git switch"
-alias greset="git reset"
 alias gremote="git remote"
+alias gwta='git worktree add'
+alias gwtl='git worktree list'
+alias gwtd='git worktree remove'
+alias gclean='git clean -df'
 
 # upgrade of standard commands
 alias cp="cp -v"
@@ -110,6 +114,7 @@ alias pyserver="python3 -m http.server"
 alias rz="rizin"
 alias :h="man"
 alias x="extract"
+alias remarkable_usb="sudo ip addr add 10.11.99.2/27 broadcast 10.11.99.31 dev enp4s0f3u2c2 && sudo ip addr link set up dev enp4s0f3u2c2"
 
 # edit dotfile
 alias valias="nvim $ZSH_DOT/alias"
