@@ -1,0 +1,41 @@
+
+
+# (੭｡╹▿╹｡)੭c[_]--K4W4--★
+# :emoji: prefix(scope): Short summary
+# |-- prefix: required Gitmoji keyword (e.g., feat, fix, docs)
+# |-- scope: optional area affected (e.g., renderer, input)
+# |-- summary: concise message (max ~50 chars, lowercase)
+
+# Example:
+# ✨ feat(ui): add dropdown menu for level selection
+# 🐛 fix(physics): resolve gravity glitch on platform edge
+
+# 🔍 Description (wrap at 72 chars, optional)
+# Explain why this change was made and any relevant context.
+
+# 💥 BREAKING CHANGE: Explain what changed and how to migrate (if needed)
+
+# ✅ Footer (optional):
+# - Closes #123
+
+
+# ──────────────── Gitmoji Prefix Reference ────────────────
+# :sparkles:                  feat        A new feature
+# :bug:                       fix         A bug fix
+# :memo:                      docs        Documentation changes
+# :art:                       style       Code style (formatting, semicolons, etc)
+# :recycle:                   refactor    Code change that isn't a fix or feature
+# :rocket:                    perf        Performance improvements
+# :white_check_mark:          test        Add or fix tests
+# :fire:                      remove      Delete code or files
+# :package:                   build       Package, dependency, or build system changes
+# :construction_worker:       ci          Continuous integration changes
+# :twisted_rightwards_arrows: merge      Merge branches
+# :rotating_light:            lint        Fix or apply linting rules
+# :green_heart:               fix-ci      Fix CI build
+# :tada:                      init        Initial commit
+# :bookmark:                  release     Tag a release
+# :test_tube:                 test        Add missing tests
+# :broom:                     clean       Code cleanup or dead code removal
+# :detective:                 debug       Add or improve debug logs
+# :coffin:                    remove      Remove dead code

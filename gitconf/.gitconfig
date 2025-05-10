@@ -13,20 +13,41 @@
 	rebase = true
 [commit]
 	gpgsign = true
+	template = /home/kawaegle/.gitmessage
 [advice]
 	detachedHead = false
+[branch]
+	sort = -commiterdate
+[tag]
+	sort = -taggerdate
 [color]
 	branch = always
 	diff = always
 	status = always
 	ui = always
+	interactive = always
 [color "branch"]
 	current = red
 	local = cyan
 	remote = green
+	upstream = yellow
+	plain = blue
 [fetch]
 	prune = true
 	writeCommitGraph = true
 [diff]
+	context = 5
 	wsErrorHighlight = all
-
+	renames = copies
+	interHunkContext = 5
+[status]
+	branch = true
+	showStash = true
+	showUntrackedFiles = all
+[interactive]
+	singlekey = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
