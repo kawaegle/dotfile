@@ -5,11 +5,9 @@ return {
     local conform = require("conform")
     conform.setup({
       formatters_by_ft = {
-        cpp = { "clang-format" },
-        c = { "clang-format" },
         python = { "isort", "black" },
         lua = { "stylua" },
-        go = { "gofmt", "goimport" },
+        go = { "gofmt", "goimports" },
         json = { "jq" },
       },
       format_on_save = {
@@ -25,6 +23,6 @@ return {
         async = false,
         timeout_ms = 500,
       })
-    end, { desc = "[M]ake  [p]retty using proper formatting tools" })
+    end, { desc = "[m]ake  [p]retty using proper formatting tools" })
   end,
 }

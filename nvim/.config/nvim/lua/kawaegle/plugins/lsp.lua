@@ -65,15 +65,6 @@ return {
       })
 
       require("mason-lspconfig").setup({
-        automatic_installation = true,
-        ensure_installed = {
-          "clangd",
-          "gopls",
-          "basedpyright",
-          "dockerls",
-          "jsonls",
-          "docker_compose_language_service",
-        },
         handlers = {
           function(server_name)
             require("lspconfig")[server_name].setup({})

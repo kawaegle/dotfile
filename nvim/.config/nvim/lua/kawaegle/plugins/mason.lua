@@ -3,7 +3,6 @@ return {
   dependencies = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
-  -- cmd = { "Mason" },
   config = function()
     require("mason").setup({
       ui = {
@@ -17,17 +16,27 @@ return {
     })
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "clang-format",
-        "cpplint",
         "stylua",
-        -- "gofmt",
         "goimports",
         "isort",
         "black",
         "luacheck",
-        -- "golangcilint",
+        "golangci-lint",
         "flake8",
+        "clangd",
+        "gopls",
+        "basedpyright",
+        "dockerls",
+        "jsonls",
+        "docker_compose_language_service",
       },
+      integrations = {
+        ["mason-lspconfig"] = true,
+        ["mason-null-ls"] = false,
+        ["mason-nvim-dap"] = false,
+      },
+      run_on_start = true,
+      auto_update = false,
     })
   end,
 }
