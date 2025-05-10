@@ -3,6 +3,7 @@
 : ${ZSH_DOT="$DOT/zsh/.local/share/zsh"}
 set -a; source $ZSH_DOT/env; set +a
 set -a; source $ZSH_DOT/de_env; set +a
+set -a; source $ZSH_DOT/jenkins.env; set +a
 
 autoload -U compinit
 autoload -U promptinit
