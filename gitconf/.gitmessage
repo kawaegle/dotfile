@@ -20,22 +20,24 @@
 
 
 # ──────────────── Gitmoji Prefix Reference ────────────────
-# :sparkles:                  feat        A new feature
-# :bug:                       fix         A bug fix
-# :memo:                      docs        Documentation changes
-# :art:                       style       Code style (formatting, semicolons, etc)
-# :recycle:                   refactor    Code change that isn't a fix or feature
-# :rocket:                    perf        Performance improvements
-# :white_check_mark:          test        Add or fix tests
-# :fire:                      remove      Delete code or files
-# :package:                   build       Package, dependency, or build system changes
-# :construction_worker:       ci          Continuous integration changes
-# :twisted_rightwards_arrows: merge      Merge branches
-# :rotating_light:            lint        Fix or apply linting rules
-# :green_heart:               fix-ci      Fix CI build
-# :tada:                      init        Initial commit
-# :bookmark:                  release     Tag a release
-# :test_tube:                 test        Add missing tests
-# :broom:                     clean       Code cleanup or dead code removal
-# :detective:                 debug       Add or improve debug logs
-# :coffin:                    remove      Remove dead code
+# :sparkles:                    feat        A new feature
+# :bug:                         fix         A bug fix
+# :memo:                        docs        Documentation changes
+# :art:                         style       Code style (formatting, semicolons, etc)
+# :recycle:                     refactor    Code change that isn't a fix or feature
+# :rocket:                      perf        Performance improvements
+# :white_check_mark:            test        Add or fix tests
+# :fire:                        remove      Delete code or files
+# :package:                     build       Package, dependency, or build system changes
+# :construction_worker:         ci          Continuous integration changes
+# :twisted_rightwards_arrow:    merge       Merge branches
+# :rotating_light:              lint        Fix or apply linting rules
+# :green_heart:                 fix-ci      Fix CI build
+# :tada:                        init        Initial commit
+# :bookmark:                    release     Tag a release
+# :test_tube:                   test        Add missing tests
+# :broom:                       clean       Code cleanup or dead code removal
+# :detective:                   debug       Add or improve debug logs
+# :coffin:                      remove      Remove dead code
+# :loud_sound:                  logs        Add or update logs
+# :mute:                        logs        Remove logs

@@ -17,7 +17,7 @@
 [advice]
 	detachedHead = false
 [branch]
-	sort = -commiterdate
+	sort = -committerdate
 [tag]
 	sort = -taggerdate
 [color]
