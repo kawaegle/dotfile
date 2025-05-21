@@ -76,8 +76,6 @@ autocmd("LspAttach", {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
     opts.desc = "open on floating diagnostic"
-    vim.keymap.set("n", "<C-M-space>", function()
-      vim.diagnostic.open_float()
-    end, opts)
+    vim.keymap.set("n", "<C-M-space>", vim.diagnostic.open_float, opts)
   end,
 })

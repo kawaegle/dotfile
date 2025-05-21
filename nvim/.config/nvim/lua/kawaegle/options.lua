@@ -39,7 +39,6 @@ local options = {
   list = true,
   termguicolors = true,
   encoding = "utf-8",
-  -- foldmethod = 'indent',
 }
 
 vim.opt.shortmess:append("c")
