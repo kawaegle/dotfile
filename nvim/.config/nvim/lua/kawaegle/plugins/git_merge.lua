@@ -21,7 +21,7 @@ local opts = {
 
 return {
   "akinsho/git-conflict.nvim",
-  version = "v2.0.0",
+  version = "v2.*",
   config = true,
   opts = opts,
 }

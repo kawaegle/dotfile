@@ -28,8 +28,4 @@ return {
       vim.cmd("colorscheme tokyonight")
     end,
   },
-  {
-    "stevearc/dressing.nvim",
-    opts = {},
-  },
 }
