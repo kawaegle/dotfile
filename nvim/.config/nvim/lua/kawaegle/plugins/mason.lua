@@ -16,19 +16,20 @@ return {
     })
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "stylua",
-        "goimports",
-        "isort",
-        "black",
-        "luacheck",
-        "golangci-lint",
-        "flake8",
+        -- lsp
         "clangd",
-        "gopls",
         "basedpyright",
-        "dockerls",
-        "jsonls",
+        "gopls",
         "docker_compose_language_service",
+        "dockerls",
+        -- formating
+        "black",
+        "isort",
+        "goimports",
+        "golangci-lint",
+        -- dap
+        "cpptools",
+        "delve",
       },
       integrations = {
         ["mason-lspconfig"] = true,

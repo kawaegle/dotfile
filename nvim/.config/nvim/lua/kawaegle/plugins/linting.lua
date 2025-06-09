@@ -8,7 +8,7 @@ return {
       -- cpp = { "cpplint" },
       -- c = { "cpplint" },
       python = { "flake8" },
-      lua = { "luacheck" },
+      -- lua = { "luacheck" },
       go = { "golangcilint" },
     }
 

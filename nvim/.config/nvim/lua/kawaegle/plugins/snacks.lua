@@ -1,5 +1,6 @@
 return {
   "folke/snacks.nvim",
+  dependencies = { "folke/todo-comments.nvim" },
   priority = 1000,
   lazy = false,
   opts = {
@@ -21,6 +22,22 @@ return {
     lazygit = { enabled = false },
   },
   keys = {
+    {
+      "<leader>tc",
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = "fuzzy find [t]odo in qui[c]kfix list",
+    },
+    {
+      "<leader>m",
+      function()
+        vim.cmd("make")
+        vim.cmd("cwindow")
+        Snacks.picker.qflist()
+      end,
+      desc = "[m]ake and open quickfix",
+    },
     {
       "<leader>qc",
       function()
@@ -120,7 +137,6 @@ return {
       end,
       desc = "LSP Workspace Symbols",
     },
-
     {
       "<leader>D",
       function()

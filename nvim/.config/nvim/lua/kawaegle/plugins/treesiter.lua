@@ -32,7 +32,6 @@ return {
         "gomod",
         "gosum",
         "json",
-        "markdown",
         "python",
       },
     },

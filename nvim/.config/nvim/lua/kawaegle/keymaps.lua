@@ -43,10 +43,6 @@ keymap("n", "<Tab>", ":tabnext<CR>", opts)
 opts.desc = "create new tab"
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 
--- make and open quickfix
-opts.desc = "do :make and open the quickfix list"
-keymap("n", "<leader>m", ":make<CR><CR>Telescope quickfix<CR>", opts)
-
 -- no search hightlight
 opts.desc = "remove the hightlight of search"
 keymap("n", "<leader><leader>", ":noh<CR>:let @/ = ''<CR>", opts)

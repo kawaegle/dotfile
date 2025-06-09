@@ -6,7 +6,6 @@ return {
     conform.setup({
       formatters_by_ft = {
         python = { "isort", "black" },
-        lua = { "stylua" },
         go = { "gofmt", "goimports" },
         json = { "jq" },
       },

@@ -11,7 +11,9 @@ local opts = {
     default_mappings = true,
     default_commands = true,
     disable_diagnostics = false,
-    list_opener = "telescope",
+    list_opener = function()
+      require("snacks.nvim").picker.qflist()
+    end,
     highlights = {
       incoming = "DiffAdd",
       current = "DiffText",
